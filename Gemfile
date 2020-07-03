@@ -32,8 +32,6 @@ gem 'devise'
 
 gem 'httparty', '~> 0.13.7'
 gem 'json'
-gem 'open-uri'
-
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

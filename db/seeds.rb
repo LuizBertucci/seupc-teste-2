@@ -4,14 +4,13 @@ require 'httparty'
 
  # Notebook.destroy_all
 
- # Depois precisaremos iterar sobre essas variaveis para popular o banco de dados
  response = File.read(Rails.public_path + 'response.txt')
 
  response_file = eval(response)
 
  all_notebooks = Notebook.new(
   bar_code: response_file[:SearchResult][:Items].each do |key|
-    key[:ItemInfo][:ExternalIds][:EANs][:DisplayValues]
+    key[:ItemInfo][:ExternalIds][:EANs][:DisplayValues].first
   end,
   full_price: response_file[:SearchResult][:Items].each do |key|
     key[:Offers][:Summaries].each do |el|
