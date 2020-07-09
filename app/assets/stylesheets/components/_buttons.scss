@@ -1,0 +1,39 @@
+.many-btn-inline {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+.btn-blue {
+  color: white;
+  padding: 6px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: #2185fb;
+  border: 1px solid #0F60C4;
+}
+
+.btn-red {
+  color: white;
+  padding: 6px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: #01a00d;
+  border: 1px solid #0F60C4;
+}
+
+.center {
+  justify-content: center;
+}
+
+.btn-login {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #1EDD88;
+}
+
+.btn-login:hover {
+  background: #1BCB7F;
+  color: white;
+}

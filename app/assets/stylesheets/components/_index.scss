@@ -1,4 +1,36 @@
 // Import your components CSS files here.
 @import "alert";
 @import "avatar";
+@import "buttons";
+@import "cards";
 @import "navbar";
+@import "notebook-results";
+@import "selected-tags";
+@import "sidebar";
+@import "size-devices";
+
+// Universal
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 0;
+  margin-right: 0;
+}

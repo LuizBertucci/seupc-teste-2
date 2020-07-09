@@ -1,0 +1,138 @@
+// Cards que engloba card
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px 16px;
+}
+
+// Card da categoria
+.card-category {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  width: 240px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-category img {
+  margin-top: 10px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.card-category h3 {
+  font-size: 18px;
+}
+
+.card-category p {
+  display: flex;
+  flex-direction: row;
+  padding: 1px 12px; // espaçamento dentro botão
+  margin-right: 6px; // espaçamento entre TAGS
+  margin-bottom: 8px;
+  border-radius: 3px;
+  border: 2px solid blue;
+  color: black;
+  font-size: 12px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+// ---------------------------------------
+// Card do produto
+.card-product {
+  background-size: cover;
+  background-position: center;
+
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  color: white;
+  font-size: 22px;
+  font-weight: bolder;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+.card-product img {
+  height: 150px;
+}
+
+.card-product h2 {
+  margin: 0;
+}
+
+.card-product p {
+  margin: 0;
+}
+
+//-----------------------------------------
+// Card vendo se notebook é uma boa
+
+.card-match {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 240px;
+  background: white;
+  padding: 8px 16px;
+  margin-bottom: 8px;
+  // justify-content: center;
+}
+
+.card-match .infos {
+  flex-grow: 1;
+  padding: 0 24px;
+
+}
+
+.card-match h4, p {
+  margin: 0;
+  line-height: 1.4;
+}
+//-----------------------
+.card-wagon {
+  overflow: hidden;
+  height: 100px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+
+.card-wagon img {
+  height: 70%;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 5%;
+  margin-left: 10px;
+}
+
+.card-wagon h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-wagon p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-wagon .card-wagon-infos {
+  padding: 16px;
+}
