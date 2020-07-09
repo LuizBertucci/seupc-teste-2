@@ -66,3 +66,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Wrapper to access Amazon Products API
 gem 'vacuum'
+
+# Setting up Cloudinary service to upload our images to a cloud system.
+
+gem 'cloudinary', '~> 1.12.0'
