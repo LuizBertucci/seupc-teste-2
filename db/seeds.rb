@@ -32,7 +32,7 @@ request = Vacuum.new(marketplace: 'BR',
 
 
 # Loop de 50 vezes para popular o DB, cada request só retornam 10 notebooks.
-i = 5
+i = 10
 while i < 11 do
   sleep(5) # garantir que não vamos floodar os requests e ser bloqueado por algumas horas pela amazon.
   response = request.search_items(keywords:'notebook', search_index:'Computers',
@@ -66,7 +66,7 @@ end
 
 
 
-#  Parseando meu temporary.json gerado pela api da Amazon
+# # Parseando meu temporary.json gerado pela api da Amazon
 
 # filepath = 'db/temptest.json'
 
@@ -81,13 +81,13 @@ end
 
 
 
-# # lógica para ler o primeiro response file com 10 itens, gerando novos 10 itens para o nosso DB
+# lógica para ler o primeiro response file com 10 itens, gerando novos 10 itens para o nosso DB
 
 # notebooks = response_file[:SearchResult][:Items]
 
 # notebooks.each do |notebook|
 
-#   Notebook.create!(
+#   laptop = Notebook.create!(
 #     bar_code:notebook[:ItemInfo][:ExternalIds][:EANs][:DisplayValues][0],
 #     full_price: notebook[:Offers][:Summaries][0][:HighestPrice][:DisplayAmount],
 #     offer_price:notebook[:Offers][:Summaries][0][:LowestPrice][:DisplayAmount],
@@ -105,6 +105,14 @@ end
 #     amazon_sales_rank:(notebook[:BrowseNodeInfo][:WebsiteSalesRank][:SalesRank] if notebook[:BrowseNodeInfo]) ,
 #     guarantee:(notebook[:ItemInfo][:ManufactureInfo][:Warranty][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo][:Warranty])
 #  )
+
+#   # adicionando a foto a cada notebook
+#   file= open(notebook['Images']['Primary']['Medium']['URL'])
+#   laptop.photo.attach(io:file, filename: "randomavatar.jpg")
+
+
+
+
 #   puts '+ 1 notebook added to our DB'
 # end
 #  puts 'notebooks sucessfully added to your database'
