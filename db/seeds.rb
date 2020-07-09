@@ -66,28 +66,28 @@ end
 
 
 
-#  Parseando meu temporary.json gerado pela api da Amazon
+# Parseando meu temporary.json gerado pela api da Amazon
 
-# filepath = 'db/temptest.json'
+filepath = 'db/temptest.json'
 
-# response = File.read(filepath)
+response = File.read(filepath)
 
-# response_file = eval(response)
-
-
+response_file = eval(response)
 
 
 
 
 
 
-# # lógica para ler o primeiro response file com 10 itens, gerando novos 10 itens para o nosso DB
+
+
+# lógica para ler o primeiro response file com 10 itens, gerando novos 10 itens para o nosso DB
 
 # notebooks = response_file[:SearchResult][:Items]
 
 # notebooks.each do |notebook|
 
-#   Notebook.create!(
+#   laptop = Notebook.create!(
 #     bar_code:notebook[:ItemInfo][:ExternalIds][:EANs][:DisplayValues][0],
 #     full_price: notebook[:Offers][:Summaries][0][:HighestPrice][:DisplayAmount],
 #     offer_price:notebook[:Offers][:Summaries][0][:LowestPrice][:DisplayAmount],
@@ -105,6 +105,14 @@ end
 #     amazon_sales_rank:(notebook[:BrowseNodeInfo][:WebsiteSalesRank][:SalesRank] if notebook[:BrowseNodeInfo]) ,
 #     guarantee:(notebook[:ItemInfo][:ManufactureInfo][:Warranty][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo][:Warranty])
 #  )
+
+#   # adicionando a foto a cada notebook
+#   file= open(notebook['Images']['Primary']['Medium']['URL'])
+#   laptop.photo.attach(io:file, filename: "randomavatar.jpg")
+
+
+
+
 #   puts '+ 1 notebook added to our DB'
 # end
 #  puts 'notebooks sucessfully added to your database'
