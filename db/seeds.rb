@@ -32,7 +32,7 @@ request = Vacuum.new(marketplace: 'BR',
 
 
 # Loop de 50 vezes para popular o DB, cada request só retornam 10 notebooks.
-i = 5
+i = 10
 while i < 11 do
   sleep(5) # garantir que não vamos floodar os requests e ser bloqueado por algumas horas pela amazon.
   response = request.search_items(keywords:'notebook', search_index:'Computers',
@@ -66,13 +66,13 @@ end
 
 
 
-# Parseando meu temporary.json gerado pela api da Amazon
+# # Parseando meu temporary.json gerado pela api da Amazon
 
-filepath = 'db/temptest.json'
+# filepath = 'db/temptest.json'
 
-response = File.read(filepath)
+# response = File.read(filepath)
 
-response_file = eval(response)
+# response_file = eval(response)
 
 
 
