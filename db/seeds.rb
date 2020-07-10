@@ -74,9 +74,9 @@ puts 'database cleanned'
 
 
 # Parseando meu temporary.json gerado pela api da Amazon
-i = 5
+i = 1
 
-# while i < 11 do
+while i < 11 do
 
   puts "lendo temp#{i}.json"
 
@@ -97,11 +97,11 @@ i = 5
       full_price: notebook[:Offers][:Summaries][0][:HighestPrice][:DisplayAmount],
       offer_price:notebook[:Offers][:Summaries][0][:LowestPrice][:DisplayAmount],
       brand:notebook[:ItemInfo][:ByLineInfo][:Brand][:DisplayValue],
-      modelo:(notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo]),
+      modelo:(notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber]),
       processor:( notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:Size] ? notebook[:ItemInfo][:ProductInfo][:Size][:DisplayValue] : notebook[:ItemInfo][:Title][:DisplayValue]),
       color:(notebook[:ItemInfo][:ProductInfo][:Color][:DisplayValue] if notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:Color]),
       screen:notebook[:ItemInfo][:Title][:DisplayValue],
-      weight:( notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:ItemDimensions][:Weight]? notebook[:ItemInfo][:ProductInfo][:ItemDimensions][:Weight][:DisplayValue] : notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]), # Tá em libras
+      weight:( notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:ItemDimensions] && notebook[:ItemInfo][:ProductInfo][:ItemDimensions][:Weight]? notebook[:ItemInfo][:ProductInfo][:ItemDimensions][:Weight][:DisplayValue] : notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]), # Tá em libras
       ram:notebook[:ItemInfo][:Title][:DisplayValue],
       hd:(notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
       ssd:(notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
@@ -123,7 +123,7 @@ i = 5
    puts 'notebooks sucessfully added to your database'
 
   i += 1
-# end
+end
 
 
 
