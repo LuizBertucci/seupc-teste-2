@@ -4,7 +4,7 @@ class NotebooksController < ApplicationController
   before_action :find_notebook, only: [:show, :edit, :destroy, :update]
 
   def index
-    @notebooks = Notebook.all
+    @notebooks = policy_scope(Notebook)
     if params[:search]
       if params[:search][:query]
         @notebookresult = Notebook.find_by(name: params[:search][:query])
