@@ -1,25 +1,19 @@
 <h1> hello world </h1>
 
 
-
 <div class="cards">
-  <div class="card-category">
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Product name</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
+  <% @notebooks.first(10).each do |notebook| %>
+    <div class="card-category">
+      <div class="card-product">
+        <%= cl_image_tag notebook.photo.key%>
+        <div class="card-product-infos">
+          <h2> <%= notebook.brand%> <%= notebook.modelo %> </h2>
+          <p> <%= notebook.hd %> </p>
+
+        </div>
       </div>
     </div>
 
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-    Lunch
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-    Dinner
-  </div>
+    <% end %>
 </div>
 
