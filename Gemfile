@@ -70,3 +70,7 @@ gem 'vacuum'
 # Setting up Cloudinary service to upload our images to a cloud system.
 
 gem 'cloudinary', '~> 1.12.0'
+
+# gem to deal with authorization
+
+gem 'pundit'
