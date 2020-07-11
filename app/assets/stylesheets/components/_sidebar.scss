@@ -1,0 +1,135 @@
+.sidebar {
+  flex: 0 0 25%;
+  padding: 10px;
+  overflow-x: hidden;
+  border-radius: 5px;
+  border: 1px solid #C0C0C0;
+  background-color: #f3f3f3;
+}
+
+// Criando o container
+.container-check {
+  display: block;
+  position: relative;
+  padding-left: 27px;
+  margin: 0;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.sidebar .container-check {
+  color: black;
+  font-size: 14px;
+}
+
+// Checkbox padrão
+.check {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  height: 16px;
+  width: 16px;
+  border-radius: 2px;
+  border: 1px solid #b9bfc7;
+}
+
+// Mostra o checkmark quando selecionado
+.container-check input:checked ~ .check:after {
+  display: block;
+}
+
+// Quando clicado - aparece "v"
+.check:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 11px;
+  border: solid #0e2bd0;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+}
+
+// Esconde o checkbox padrão do browser
+.container-check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+//-----------------------
+// MARGEM
+.margin-top {
+  margin-top: 10px;
+}
+
+.margin-bottom {
+  margin-bottom: 10px;
+}
+
+.margin-left-10 {
+  margin-left: 10px;
+}
+
+.margin-left-8 {
+  margin-left: 8px;
+}
+
+// ----------------------
+// Título da sidebar
+.sidebar-title h3 {
+  font-size: 18px;
+}
+
+.sidebar-title p {
+  font-size: 14px;
+}
+
+.sidebar-title li {
+  font-size: 14px;
+}
+
+//-----------------------
+// Opacidade do texto
+.text-opacity {
+  opacity: .7;
+}
+
+//-----------------------
+// BOX DE BUSCA
+.search-form-control {
+  position: relative;
+  width: 100%;
+}
+
+.search-form-control .form-control {
+  height: 1.95rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  border: 1px solid #E7E7E7;
+  border-radius: 5px;
+}
+
+.search-form-control .form-control:focus {
+  outline: none !important;
+  border: 1px solid #1EDD88;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.search-form-control .btn {
+  position: absolute;
+  top: -1px;
+  right: 0px;
+  opacity: 0.8;
+}
+
+//-----------------------
+// Barra de rolagem da busca
+.overflow {
+  overflow-y: scroll;
+  height: 165px; //145px
+  width: 240px;
+}

@@ -1,0 +1,26 @@
+.selected-tags-and-notebook-results {
+  flex: 0 0 65%;
+  height: 175px;
+  margin-left: 20px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.selected-tags .title {
+  padding: 5px;
+  font-size: 16px;
+  margin-left: 4px;
+}
+
+.selected-tags .tags {
+  padding: 1px 12px;
+  margin-top: 7px;
+  margin-right: 6px;
+  margin-left: 10px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid blue;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}

@@ -38,12 +38,12 @@ puts 'database cleanned'
 
 
 
-# # Loop de 50 vezes para popular o DB, cada request só retornam 10 notebooks.
-# i = 5
-# while i < 11 do
+# # Loop de 10 vezes para popular o DB, cada request só retornam 10 notebooks.
+# i = 1
+# while i < 5 do
 #   sleep(5) # garantir que não vamos floodar os requests e ser bloqueado por algumas horas pela amazon.
 #   response = request.search_items(keywords:'notebook', search_index:'Computers',
-#   item_page: "#{i}".to_i, sort_by:'Price:LowToHigh', resources:[
+#   item_page: "#{i}".to_i, sort_by:'AvgCustomerReviews', resources:[
 #    "ItemInfo.ExternalIds", "ItemInfo.ProductInfo",
 #    "ItemInfo.Features", "ItemInfo.Title",
 #    "BrowseNodeInfo.WebsiteSalesRank","ItemInfo.ManufactureInfo",
@@ -61,7 +61,7 @@ puts 'database cleanned'
 
 #   # puts response
 
-#   File.open("db/temporaryfiles/temp_low_to_high_#{i}.json", 'wb') do |file|
+#   File.open("db/temporaryfiles/temp_rating_#{i}.json", 'wb') do |file|
 #     file.write(JSON.generate(response))
 #   end
 
@@ -108,7 +108,8 @@ while i < 11 do
       placa_video:(notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
       keyboard:(notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
       amazon_sales_rank:(notebook[:BrowseNodeInfo][:WebsiteSalesRank][:SalesRank] if notebook[:BrowseNodeInfo]) ,
-      guarantee:(notebook[:ItemInfo][:ManufactureInfo][:Warranty][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:Warranty] )
+      guarantee:(notebook[:ItemInfo][:ManufactureInfo][:Warranty][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:Warranty] ),
+      link_amazon:notebook[:DetailPageURL]
    )
 
     # adicionando a foto a cada notebook

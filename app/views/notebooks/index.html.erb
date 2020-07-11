@@ -1,25 +1,382 @@
-<h1> hello world </h1>
+<h1>Em construção</h1>
 
+<div class="index-page-centralize">
 
+  <div class="container flex-center">
 
-<div class="cards">
-  <div class="card-category">
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Product name</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-title">
+        <h3><strong>Curso</strong></h3>
+
+        <form novalidate="novalidate" class="simple_form search" >
+          <div class="search-form-control form-group">
+            <input class="form-control">
+            <button name="button" type="submit" class="btn btn-flat">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </form>
+
+        <div class="overflow">
+          <label class="container-check">Administração
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check">Arquitetura e urbanismo
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check">Ciência da computação
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check">Ciências contábeis
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check">Contabilidade
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check">Direito
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <%= image_tag("lista.png", width: "10", height: "10") %>
+          <label class="container-check">Engenharias
+            <%= image_tag("seta.png", width: "10", height: "10") %>
+          </label>
+
+          <label class="container-check">Farmácia
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check">Fisioterapia
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check">Jornalismo
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check">Medicina
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check">Medicina veterinária
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+        </div>
+      </div>
+
+      <!-- --------------------------- -->
+
+      <div class="sidebar-title">
+        <h3 class="margin-top"><strong>Software</strong></h3>
+        <p class="margin-left-8">Ex: canva ou editor de foto</p>
+
+        <form class="simple_form search" >
+          <div class="search-form-control form-group">
+            <input class="form-control">
+            <button name="button" type="submit" class="btn btn-flat">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- --------------------------- -->
+
+      <div class="sidebar-title">
+        <h3 class="margin-top"><strong>Tela</strong></h3>
+        <a href=""><p>Ver tamanho na prática</p></a>
+
+        <label class="container-check">13"
+          <input type="checkbox">
+          <span class="check"></span>
+        </label>
+
+        <label class="container-check">15"
+          <input type="checkbox">
+          <span class="check"></span>
+        </label>
+
+        <label class="container-check">17"
+          <input type="checkbox">
+          <span class="check"></span>
+        </label>
+      </div>
+
+      <!-- --------------------------- -->
+
+      <div class="sidebar-title">
+        <h3 class="margin-top"><strong>Marcas</strong></h3>
+
+        <div class="flex-row">
+          <label class="container-check margin-bottom">Acer
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check margin-left-10 margin-bottom">Lenovo
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+        </div>
+
+        <div class="flex-row">
+          <label class="container-check margin-bottom">Asus
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check margin-left-10 margin-bottom">Samsung
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+        </div>
+
+        <div class="flex-row">
+          <label class="container-check margin-bottom">Dell
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check margin-left-10 margin-bottom">Vaio
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+        </div>
+
+        <div class="flex-row">
+          <label class="container-check margin-bottom">HP
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check margin-left-10 margin-bottom">Samsung
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- --------------------------- -->
+
+      <div class="sidebar-title">
+        <h3 class="margin-top"><strong>Preço</strong></h3>
+        <h6 class="text-opacity">Quanto pretende investir?</h6>
+
+        <div class="flex-row">
+          <label class="container-check margin-bottom">Até R$2.000
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check margin-left-10 margin-bottom">Até R$4.000
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+        </div>
+
+        <div class="flex-row">
+          <label class="container-check margin-bottom">Até R$2.500
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check margin-left-10 margin-bottom">Até R$4.500
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+        </div>
+
+        <div class="flex-row">
+          <label class="container-check margin-bottom">Até R$3.000
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check margin-left-10 margin-bottom">Até R$5.000
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+        </div>
+
+        <div class="flex-row">
+          <label class="container-check margin-bottom">Até R$3.500
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+
+          <label class="container-check margin-left-10 margin-bottom">Até R$5.500
+            <input type="checkbox">
+            <span class="check"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- --------------------------- -->
+
+      <div class="sidebar-title">
+        <h3 class="margin-top"><strong>Login</strong></h3>
+
+        <div class="text-center btn-lg">
+          <a class="btn btn-login" href="">ENTRAR</a>
+        </div>
+        <ol>
+          <li>Não perca suas buscas</li>
+          <li>Seja notificado quando um notebook tiver o preço desejado</li>
+        </ol>
       </div>
     </div>
 
+    <!-- --------------------------- -->
+    <!-- Cards com perfis -->
+    <div class="cards">
+      <div class="card-category">
+        <img src="https://www.w3schools.com/images/w3schools_green.jpg" width="50" height="50">
+        <h3>Dia a dia</h3>
+        <div class="row">
+          <p>LEVE</p>
+          <p>NETFLIX</p>
+          <p>PACOTE OFFICE</p>
+          <p>R$2.500</p>
+        </div>
+      </div>
+
+      <div class="card-category">
+        <img src="https://www.w3schools.com/images/w3schools_green.jpg" width="50" height="50">
+        <h3>Filme em casa</h3>
+        <div class="row">
+          <p>FULL HD</p>
+          <p>LEVE</p>
+          <p>NETFLIX</p>
+          <p>POPCORN TIME</p>
+          <p>R$2.500</p>
+        </div>
+      </div>
+
+      <div class="card-category">
+        <img src="https://www.w3schools.com/images/w3schools_green.jpg" width="50" height="50">
+        <h3>Pro trabalho</h3>
+        <div class="row">
+          <p>i5</p>
+          <p>FULL HD</p>
+          <p>OFFICE</p>
+          <p>R$2.500</p>
+        </div>
+      </div>
+
+      <div class="card-category">
+        <img src="https://www.w3schools.com/images/w3schools_green.jpg" width="50" height="50">
+        <h3>Faculdade</h3>
+        <div class="row">
+          <p>i5</p>
+          <p>LEVE</p>
+          <p>FULL HD</p>
+          <p>PACOTE OFFICE</p>
+          <p>R$2.500</p>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-    Lunch
-  </div>
+  <!-- Parte que mostra as TAGS selecionadas -->
+  <div class="selected-tags-and-notebook-results">
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-    Dinner
+    <div class="selected-tags">
+      <div class="title">
+        <strong>TAGS Selecionadas:</strong>
+      </div>
+
+      <div class="row">
+        <div class="tags">
+          <p>ADMINISTRAÇÃO</p>
+        </div>
+        <div class="tags">
+          <p>i5</p>
+        </div>
+        <div class="tags">
+          <p>PACOTE OFFICE</p>
+        </div>
+        <div class="tags">
+          <p>LEVE</p>
+        </div>
+        <div class="tags">
+          <p>R$2.500</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="notebook-results">
+      <div class="notebook-card">
+        <%= image_tag("notebook.png")%>
+        <p class="name">Notebook Lenovo IdeaPad S145 Intel Core i5 8265U 15,6" 8GB HD 1 TB</p>
+        <p class="price">R$2.500</p>
+      </div>
+
+      <!-- Sintaxe certa - de cima ou de baixo? -->
+
+      <div class="notebook-card">
+        <%= image_tag("notebook.png")%>
+        <div class="name">
+          <p>Notebook Lenovo IdeaPad S145 Intel Core i5 8265U 15,6" 8GB HD 1 TB</p>
+        </div>
+        <div class="price">
+          <p>R$2.500</p>
+        </div>
+      </div>
+
+      <div class="notebook-card">
+        <%= image_tag("notebook.png")%>
+        <div class="name">
+          <p>Notebook Lenovo IdeaPad S145 Intel Core i5 8265U 15,6" 8GB HD 1 TB</p>
+        </div>
+        <div class="price">
+          <p>R$2.500</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+  <!-- Notebooks Selecionados -->
+
+
+
+<!-- --------------------------- -->
+    <!-- Ver se notebook X é uma boa pra pessoa -->
+    <!-- Disponibilizar na V2 -->
+
+<!--     <div class="card-match">
+      <img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="notebook" width="50" height="50">
+      <div class="infos">
+        <h4>Teste</h4>
+        <p>Algumas infos do notebook</p>
+      </div>
+
+      <div class="many-btn-inline">
+        <div class="btn btn-red">VER MAIS</div>
+        <div class="btn btn-blue">MATCH</div>
+      </div>
+    </div>
+
+    <div class="card-wagon">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-wagon-infos">
+        <h2>Notebook Lenovo IdeaPad S145 Intel Core i5 8265U 15,6"</h2>
+      </div>
+    </div> -->
