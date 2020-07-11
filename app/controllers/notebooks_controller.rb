@@ -40,6 +40,11 @@ class NotebooksController < ApplicationController
   def edit
   end
 
+
+  def destroy
+    @notebook.destroy notebook_path(@notebook)
+  end
+
   def update
     @notebook.update(notebooks_params)
 
@@ -49,7 +54,9 @@ class NotebooksController < ApplicationController
   private
 
   def find_notebook
-    @notebook = notebook.find(params[:id])
+    @notebook = Notebook.find(params[:id])
+    authorize @notebook
+
   end
 
   def notebooks_params

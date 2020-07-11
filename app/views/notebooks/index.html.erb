@@ -323,33 +323,17 @@
     </div>
 
     <div class="notebook-results">
-      <div class="notebook-card">
-        <%= image_tag("notebook.png")%>
-        <p class="name">Notebook Lenovo IdeaPad S145 Intel Core i5 8265U 15,6" 8GB HD 1 TB</p>
-        <p class="price">R$2.500</p>
-      </div>
 
-      <!-- Sintaxe certa - de cima ou de baixo? -->
+      <%@notebooks.first(12).each do |notebook|  %>
+        <%= link_to notebook_path(notebook) do %>
+          <div class="notebook-card">
+            <%= cl_image_tag notebook.photo.key%>
+            <p class="name"><%= notebook.ram %></p>
+            <p class="price"><%= notebook.offer_price %></p>
+          </div>
+        <% end %>
+      <% end %>
 
-      <div class="notebook-card">
-        <%= image_tag("notebook.png")%>
-        <div class="name">
-          <p>Notebook Lenovo IdeaPad S145 Intel Core i5 8265U 15,6" 8GB HD 1 TB</p>
-        </div>
-        <div class="price">
-          <p>R$2.500</p>
-        </div>
-      </div>
-
-      <div class="notebook-card">
-        <%= image_tag("notebook.png")%>
-        <div class="name">
-          <p>Notebook Lenovo IdeaPad S145 Intel Core i5 8265U 15,6" 8GB HD 1 TB</p>
-        </div>
-        <div class="price">
-          <p>R$2.500</p>
-        </div>
-      </div>
     </div>
   </div>
 </div>
