@@ -9,7 +9,11 @@ class NotebookPolicy < ApplicationPolicy
     end
 
     def update?
-      record.user == user
+      current_user.admin
+    end
+
+    def edit?
+      current_user.admin
     end
 
     def create?

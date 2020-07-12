@@ -21,7 +21,8 @@ class NotebooksController < ApplicationController
   end
 
   def show
-
+    skip_authorization
+    @user = current_user
   end
 
   def new
@@ -38,10 +39,12 @@ class NotebooksController < ApplicationController
   end
 
   def edit
+
   end
 
 
   def destroy
+    @user = current_user
     @notebook.destroy notebook_path(@notebook)
   end
 
@@ -55,7 +58,7 @@ class NotebooksController < ApplicationController
 
   def find_notebook
     @notebook = Notebook.find(params[:id])
-    authorize @notebook
+
 
   end
 
