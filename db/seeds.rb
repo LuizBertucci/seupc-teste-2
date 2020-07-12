@@ -109,7 +109,8 @@ while i < 11 do
       keyboard:(notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
       amazon_sales_rank:(notebook[:BrowseNodeInfo][:WebsiteSalesRank][:SalesRank] if notebook[:BrowseNodeInfo]) ,
       guarantee:(notebook[:ItemInfo][:ManufactureInfo][:Warranty][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:Warranty] ),
-      link_amazon:notebook[:DetailPageURL]
+      link_amazon:notebook[:DetailPageURL],
+      asin:notebook[:ASIN] # identificador da amazon(chave primaria), que garante que cada produto seja diferente um do outro
    )
 
     # adicionando a foto a cada notebook
@@ -126,6 +127,59 @@ while i < 11 do
   i += 1
 end
 
+puts 'most 100 relevants notebooks was added to the DB'
+puts 'now we are going to add the 100 with a better avaliation to the DB'
+
+while i < 11 do
+
+  puts "lendo temp#{i}.json"
+
+  filepath = "db/temporaryfiles/temp_rating_#{i}.json"
+
+  response = File.read(filepath)
+
+  response_file = eval(response)
+
+  # lógica para ler o primeiro response file com 10 itens, gerando novos 10 itens para o nosso DB
+
+  notebooks = response_file[:SearchResult][:Items]
+
+  notebooks.each do |notebook|
+
+    laptop = Notebook.create!(
+      bar_code:(notebook[:ItemInfo][:ExternalIds][:EANs][:DisplayValues][0] if notebook[:ItemInfo][:ExternalIds]),
+      full_price: notebook[:Offers][:Summaries][0][:HighestPrice][:DisplayAmount],
+      offer_price:notebook[:Offers][:Summaries][0][:LowestPrice][:DisplayAmount],
+      brand:notebook[:ItemInfo][:ByLineInfo][:Brand][:DisplayValue],
+      modelo:(notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber]),
+      processor:( notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:Size] ? notebook[:ItemInfo][:ProductInfo][:Size][:DisplayValue] : notebook[:ItemInfo][:Title][:DisplayValue]),
+      color:(notebook[:ItemInfo][:ProductInfo][:Color][:DisplayValue] if notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:Color]),
+      screen:notebook[:ItemInfo][:Title][:DisplayValue],
+      weight:( notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:ItemDimensions] && notebook[:ItemInfo][:ProductInfo][:ItemDimensions][:Weight]? notebook[:ItemInfo][:ProductInfo][:ItemDimensions][:Weight][:DisplayValue].to_i * 0.453592 : notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]), # Tá em libras
+      ram:notebook[:ItemInfo][:Title][:DisplayValue],
+      hd:(notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
+      ssd:(notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
+      placa_video:(notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
+      keyboard:(notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
+      amazon_sales_rank:(notebook[:BrowseNodeInfo][:WebsiteSalesRank][:SalesRank] if notebook[:BrowseNodeInfo]) ,
+      guarantee:(notebook[:ItemInfo][:ManufactureInfo][:Warranty][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:Warranty] ),
+      link_amazon:notebook[:DetailPageURL],
+      asin:notebook[:ASIN]
+   )
+
+    # adicionando a foto a cada notebook
+    file= open(notebook[:Images][:Primary][:Medium][:URL])
+    laptop.photo.attach(io:file, filename: "randomavatar.jpg")
+
+
+
+
+    puts '+ 1 notebook added to our DB'
+  end
+   puts 'notebooks sucessfully added to your database'
+
+  i += 1
+end
 
 
 
