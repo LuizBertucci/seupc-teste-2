@@ -1,0 +1,30 @@
+<h2>Editing your product</h2>
+:bar_code, :full_price, :offer_price,
+      :brand, :modelo, :processor, :color,
+      :screen, :ram, :hd, :ssd, :placa_video, :keyboard,
+      :amazon_sales_rank, :guarantee
+  <%= simple_form_for @product do |f| %>
+
+      <%= f.input :bar_code %>
+      <%= f.input :full_price %>
+      <%= f.input :offer_price %>
+      <%= f.input :brand %>
+      <%= f.input :modelo %>
+      <%= f.input :processor %>
+      <%= f.input :color %>
+      <%= f.input :screen %>
+      <%= f.input :ram %>
+      <%= f.input :hd %>
+      <%= f.input :ssd %>
+      <%= f.input :placa_video %>
+      <%= f.input :keyboard %>
+      <%= f.input :amazon_sales_rank %>
+      <%= f.input :guarantee %>
+      <%= f.input :link_amazon: %>
+
+
+      <%= f.input :photo, as: :file %>
+      <%= f.submit class: 'btn btn-primary' %>
+
+  <% end %>
+
