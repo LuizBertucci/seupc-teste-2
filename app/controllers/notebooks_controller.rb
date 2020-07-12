@@ -56,6 +56,7 @@ class NotebooksController < ApplicationController
   def update
     @user = current_user
     authorize @user
+    @notebook.edited = true
     @notebook.update(notebooks_params)
 
     redirect_to notebook_path
