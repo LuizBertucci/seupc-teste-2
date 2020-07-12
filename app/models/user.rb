@@ -5,4 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :username, presence: true, length: { minimum: 3 }
+
+  after_initialize :init
+
+  def init
+    self.admin ||= false
+  end
+
 end
