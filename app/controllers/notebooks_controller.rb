@@ -21,7 +21,7 @@ class NotebooksController < ApplicationController
   end
 
   def show
-
+    skip_authorization
   end
 
   def new
