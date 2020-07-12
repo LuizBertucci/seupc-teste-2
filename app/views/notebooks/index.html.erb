@@ -324,13 +324,24 @@
 
     <div class="notebook-results">
 
-      <%@notebooks.first(12).each do |notebook|  %>
-        <%= link_to notebook_path(notebook) do %>
-          <div class="notebook-card">
-            <%= cl_image_tag notebook.photo.key%>
-            <p class="name"><%= notebook.ram %></p>
-            <p class="price"><%= notebook.offer_price %></p>
-          </div>
+      <%@notebooks.each do |notebook|  %>
+        <% if notebook.edited  %>
+          <%= link_to notebook_path(notebook), style:'border:1px solid greeb; background: green;' do %>
+            <div class="notebook-card">
+              <%= cl_image_tag notebook.photo.key%>
+              <p class="name"><%= notebook.ram %></p>
+              <p class="price"><%= notebook.offer_price %></p>
+            </div>
+          <% end %>
+        <% else %>
+
+          <%= link_to notebook_path(notebook) do %>
+            <div class="notebook-card">
+              <%= cl_image_tag notebook.photo.key%>
+              <p class="name"><%= notebook.ram %></p>
+              <p class="price"><%= notebook.offer_price %></p>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
 
