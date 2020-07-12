@@ -101,7 +101,7 @@ while i < 11 do
       processor:( notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:Size] ? notebook[:ItemInfo][:ProductInfo][:Size][:DisplayValue] : notebook[:ItemInfo][:Title][:DisplayValue]),
       color:(notebook[:ItemInfo][:ProductInfo][:Color][:DisplayValue] if notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:Color]),
       screen:notebook[:ItemInfo][:Title][:DisplayValue],
-      weight:( notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:ItemDimensions] && notebook[:ItemInfo][:ProductInfo][:ItemDimensions][:Weight]? notebook[:ItemInfo][:ProductInfo][:ItemDimensions][:Weight][:DisplayValue] : notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]), # Tá em libras
+      weight:( notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:ItemDimensions] && notebook[:ItemInfo][:ProductInfo][:ItemDimensions][:Weight]? notebook[:ItemInfo][:ProductInfo][:ItemDimensions][:Weight][:DisplayValue].to_i * 0.453592 : notebook[:ItemInfo][:Features][:DisplayValues].to_i * 0.453592 if notebook[:ItemInfo][:Features]), # Tá em libras
       ram:notebook[:ItemInfo][:Title][:DisplayValue],
       hd:(notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
       ssd:(notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
