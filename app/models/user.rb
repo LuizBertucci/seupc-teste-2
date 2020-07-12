@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   validates :username, presence: true, length: { minimum: 3 }
 
+  has_one_attached :photo
+
   after_initialize :init
 
   def init

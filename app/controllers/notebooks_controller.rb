@@ -1,7 +1,7 @@
 class NotebooksController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :find_notebook, only: [:show, :edit, :destroy, :update]
+  before_action :find_notebook, only: [:show, :edit, :update]
 
   def index
     @notebooks = policy_scope(Notebook)
@@ -39,16 +39,23 @@ class NotebooksController < ApplicationController
   end
 
   def edit
-
+    @user = current_user
+    authorize @user
   end
 
 
   def destroy
     @user = current_user
-    @notebook.destroy notebook_path(@notebook)
+    authorize @user
+    @notebook = Notebook.find(params[:id])
+    @notebook.destroy
+    redirect_to notebooks_path
+
   end
 
   def update
+    @user = current_user
+    authorize @user
     @notebook.update(notebooks_params)
 
     redirect_to notebook_path

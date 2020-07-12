@@ -4,17 +4,21 @@
   <div class="show-container">
     <div class="show-container-img">
       <%= cl_image_tag @notebook.photo.key%>
-      <% if policy(@user).update? %>
-        <%= link_to edit_notebook_path(@notebook) do%>
-          <i class="fas fa-edit"></i>
-        <% end %>
-      <% end %>
+      <div class="show-container-icons">
 
-      <% if policy(@user).destroy? %>
-        <%= link_to notebook_path(@notebook), method:'DELETE', data: { confirm: "Are you sure?" } do %>
-          <i class="fas fa-trash"></i>
+        <% if policy(@user).update? %>
+          <%= link_to edit_notebook_path(@notebook) do%>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
-      <% end %>
+
+        <% if policy(@user).destroy? %>
+          <%= link_to notebook_path(@notebook), method:'DELETE', data: { confirm: "Are you sure?" } do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+        <% end %>
+
+      </div>
     </div>
 
     <div class="show-container-info">
