@@ -21,4 +21,9 @@ class UserPolicy < ApplicationPolicy
     @user.admin
   end
 
+  def create?
+    @user.admin
+  end
+
+
 end

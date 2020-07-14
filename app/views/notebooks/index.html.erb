@@ -322,7 +322,18 @@
       </div>
     </div>
 
+
+
     <div class="notebook-results">
+      <% if @user %>
+        <% if policy(@user).create? %>
+          <%= link_to new_notebook_path do%>
+            <i class="fas fa-plus-square", style='display: flex; justify-content: center; align-items: center; font-size: 48px; height:100%;'></i>
+          <% end %>
+        <% end %>
+      <% end %>
+
+
 
       <%@notebooks.each do |notebook|  %>
         <% if notebook.edited  %>
