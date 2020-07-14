@@ -26,8 +26,18 @@ OpenURI::Buffer.const_set 'StringMax', 0
 puts 'cleaning database'
 
 Notebook.destroy_all
-
+User.destroy_all
 puts 'database cleanned'
+
+
+puts 'creating the admin users'
+
+luiz = User.create!({ username: "LBertucci", password: "123456", email: 'luizelbertucci@gmail.com', admin:true})
+file = open("https://ca.slack-edge.com/T02NE0241-USJJ38XK7-823cd5ba441d-512")
+luiz.photo.attach(io:file, filename: "luiz.jpg")
+
+
+klismann = User.create!({ username: "Klismann", password: "123456", email: 'klismannsffer@gmail.com', admin:true})
 
 # # Lógica para fazer um request http manual para a api da amazon
 
