@@ -4,6 +4,7 @@ class NotebooksController < ApplicationController
   before_action :find_notebook, only: [:show, :edit, :update]
 
   def index
+    @user = current_user
     @notebooks = policy_scope(Notebook)
     if params[:search]
       if params[:search][:query]
@@ -27,6 +28,8 @@ class NotebooksController < ApplicationController
 
   def new
     @notebook = Notebook.new
+    @user = current_user
+    authorize @user
   end
 
   def create

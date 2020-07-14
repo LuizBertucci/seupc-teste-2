@@ -17,7 +17,7 @@ class NotebookPolicy < ApplicationPolicy
     end
 
     def create?
-      true
+      current_user.admin
     end
 
   end
