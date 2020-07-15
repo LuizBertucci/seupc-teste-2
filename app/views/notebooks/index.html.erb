@@ -337,7 +337,7 @@
 
       <%@notebooks.each do |notebook|  %>
         <% if notebook.edited  %>
-          <%= link_to notebook_path(notebook), style:'border:1px solid greeb; background: green;' do %>
+          <%= link_to notebook_path(notebook), data: { turbolinks: false }, style:'border:1px solid greeb; background: green;' do %>
             <div class="notebook-card">
               <%= cl_image_tag notebook.photo.key%>
               <p class="name"><%= notebook.ram %></p>
@@ -346,7 +346,7 @@
           <% end %>
         <% else %>
 
-          <%= link_to notebook_path(notebook) do %>
+          <%= link_to notebook_path(notebook), data: { turbolinks: false } do %>
             <div class="notebook-card">
               <%= cl_image_tag notebook.photo.key%>
               <p class="name"><%= notebook.ram %></p>
