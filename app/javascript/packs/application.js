@@ -9,6 +9,20 @@ require("@rails/activestorage").start()
 require("channels")
 
 
+
+//= require js/gsdk-morphing.js
+//= require js/gsdk-radio.js
+//= require js/gsdk-bootstrapswitch.js
+//= require js/bootstrap-select.js
+//= require js/bootstrap-datepicker.js
+//= require js/chartist.min.js
+//= require js/jquery.tagsinput.js
+//= require js/jquery.flexisel.js
+//= require js/get-shit-done.js
+//= require js/gsdk-checkbox.js
+
+
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -24,6 +38,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
