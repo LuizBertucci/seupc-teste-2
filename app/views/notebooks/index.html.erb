@@ -343,7 +343,7 @@
                 <% if notebook.general_info %>
                   <p class="name"><%= notebook.general_info %></p>
                 <% else %>
-                  <p class="name"><%= notebook.ram %></p>
+                  <p class="name"><%= notebook.general_info %></p>
                 <% end %>
               <p class="price"><%= notebook.offer_price %></p>
             </div>
@@ -353,7 +353,7 @@
           <%= link_to notebook_path(notebook), data: { turbolinks: false } do %>
             <div class="notebook-card">
               <%= cl_image_tag notebook.photo.key%>
-              <p class="name"><%= notebook.ram %></p>
+              <p class="name"><%= notebook.general_info %></p>
               <p class="price"><%= notebook.offer_price %></p>
             </div>
           <% end %>
