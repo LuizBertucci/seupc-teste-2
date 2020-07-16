@@ -2,6 +2,7 @@
   <%= simple_form_for @notebook do |f| %>
 
       <%= f.input :asin, hint:'asin da amazon que garante que não tenha notebook repetido' %>
+      <%= f.input :name %>
       <%= f.input :full_price %>
       <%= f.input :offer_price %>
       <%= f.input :brand %>
@@ -19,6 +20,7 @@
       <%= f.input :link_magalu, hint:'Coloque o link da magazine luiza sendo seupc como afiliado para ganharmos porcentagem na compra' %>
       <%= f.input :link_americanas, hint:'Coloque o link da americanas sendo seupc como afiliado para ganharmos porcentagem na compra' %>
       <%= f.input :link_submarino, hint:'Coloque o link da submarino sendo seupc como afiliado para ganharmos porcentagem na compra' %>
+
 
       <%= f.input :photo, as: :file %>
       <%= f.submit class: 'btn btn-primary' %>

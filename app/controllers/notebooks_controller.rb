@@ -78,7 +78,7 @@ class NotebooksController < ApplicationController
       :brand, :modelo, :processor, :color,
       :screen, :ram, :hd, :ssd, :placa_video, :keyboard,
       :amazon_sales_rank, :guarantee, :link_amazon, :link_submarino,
-      :link_magalu, :link_americanas)
+      :link_magalu, :link_americanas, :name)
   end
 end
 
