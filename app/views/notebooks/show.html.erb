@@ -17,6 +17,10 @@
             <% end %>
           <% end %>
         <% end %>
+      </div>
+      <div class="show-price">
+        <p> <strike> <%= @notebook.full_price %> </strike> </p>
+        <p> <%= @notebook.offer_price %> </p>
 
       </div>
     </div>
@@ -27,8 +31,32 @@
       <% else %>
          <h1> <%= @notebook.ram.split(',')[0] %></h1>
       <% end %>
-      <p> full price : <%= @notebook.full_price %> </p>
-      <p> offer price : <%= @notebook.offer_price %> </p>
+
+
+      <div class="show-secoes-info">
+
+        <p>
+          <a class="btn btn-primary" >
+            Informação
+          </a>
+
+
+
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Detalhes Técnicos
+          </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+          </div>
+        </div>
+      </div>
+
+
+
+
+
       <p> brand : <%= @notebook.brand %> </p>
       <p> modelo : <%= @notebook.modelo %> </p>
       <p> processor : <%= @notebook.processor %> </p>

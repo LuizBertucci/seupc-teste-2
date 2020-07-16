@@ -105,6 +105,7 @@ while i < 11 do
       amazon_sales_rank: (notebook[:BrowseNodeInfo][:WebsiteSalesRank][:SalesRank] if notebook[:BrowseNodeInfo]) ,
       guarantee: (notebook[:ItemInfo][:ManufactureInfo][:Warranty][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:Warranty] ),
       link_amazon: notebook[:DetailPageURL],
+      general_info: notebook[:ItemInfo][:Title][:DisplayValue],
       asin: notebook[:ASIN] # identificador da amazon(chave primaria), que garante que cada produto seja diferente um do outro
     )
 
@@ -160,8 +161,9 @@ puts 'most 100 relevants notebooks was added to the DB'
 #         keyboard: (notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
 #         amazon_sales_rank: (notebook[:BrowseNodeInfo][:WebsiteSalesRank][:SalesRank] if notebook[:BrowseNodeInfo]) ,
 #         guarantee: (notebook[:ItemInfo][:ManufactureInfo][:Warranty][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:Warranty] ),
-#         link_amazon: notebook[:DetailPageURL],
-#         asin: notebook[:ASIN]
+        # link_amazon: notebook[:DetailPageURL],
+        # general_info: notebook[:ItemInfo][:Title][:DisplayValue],
+        # asin: notebook[:ASIN]
 #      )
 
 #       # adicionando a foto a cada notebook
