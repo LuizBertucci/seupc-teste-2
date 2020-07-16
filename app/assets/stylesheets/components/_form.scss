@@ -2,7 +2,7 @@
   background-image: image-url("form-background.jpg");
   background-size: cover;
   height:100%;
-  position:relative;
+
 
 }
 
@@ -36,3 +36,25 @@
 .form-new-img {
     width: 50%;
 }
+
+
+.form-background-edit {
+  background-image: image-url("form-background.jpg");
+  background-size: cover;
+  height:100%;
+  display:flex;
+  justify-content:center;
+
+}
+
+
+.form-info-edit {
+  width:600px;
+  border:1px solid gray;
+  background-color:white;
+  border-radius:4px;
+  padding:9px;
+  margin:24px;
+}
+
+
