@@ -19,6 +19,7 @@
         <% end %>
       </div>
       <div class="show-price">
+
         <p> <strike> <%= @notebook.full_price %> </strike> </p>
         <p> <%= @notebook.offer_price %> </p>
 
@@ -33,44 +34,71 @@
       <% end %>
 
 
-      <div class="show-secoes-info">
 
-        <p>
-          <a class="btn btn-primary" >
-            Informação
-          </a>
+    <!-- Bootstrap collapse code -->
 
+    <div id="accordion">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Informações Gerais
+            </button>
+          </h5>
+        </div>
 
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <% if @notebook.general_info%>
+              <p><%= @notebook.general_info %> </p>
+            <% else %>
+              <p><%= @notebook.ram %> </p>
+            <% end %>
 
-          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            Detalhes Técnicos
-          </button>
-        </p>
-        <div class="collapse" id="collapseExample">
-          <div class="card card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
           </div>
         </div>
       </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Detalhes Técnicos
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body">
+            <p> brand : <%= @notebook.brand %> </p>
+            <p> modelo : <%= @notebook.modelo %> </p>
+            <p> processor : <%= @notebook.processor %> </p>
+            <p> color : <%= @notebook.color %> </p>
+            <p> screen : <%= @notebook.screen %> </p>
+            <p> weight : <%= (@notebook.weight).to_f.round(2) %> kg </p>
+            <p> ram : <%= @notebook.ram %> </p>
+            <p> hd : <%= @notebook.hd %> </p>
+            <p> ssd : <%= @notebook.ssd %> </p>
+            <p> placa_video : <%= @notebook.placa_video %> </p>
+            <p> keyboard : <%= @notebook.keyboard %> </p>
+            <p> amazon_sales_rank : <%= @notebook.amazon_sales_rank %> </p>
+            <p> guarantee : <%= @notebook.guarantee %> </p>
+            <p> link amazon : <a href="<%= @notebook.link_amazon %>" target='_blank'> me leve para o site da amazon</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
 
 
-      <p> brand : <%= @notebook.brand %> </p>
-      <p> modelo : <%= @notebook.modelo %> </p>
-      <p> processor : <%= @notebook.processor %> </p>
-      <p> color : <%= @notebook.color %> </p>
-      <p> screen : <%= @notebook.screen %> </p>
-      <p> weight : <%= (@notebook.weight).to_f.round(2) %> kg </p>
-      <p> ram : <%= @notebook.ram %> </p>
-      <p> hd : <%= @notebook.hd %> </p>
-      <p> ssd : <%= @notebook.ssd %> </p>
-      <p> placa_video : <%= @notebook.placa_video %> </p>
-      <p> keyboard : <%= @notebook.keyboard %> </p>
-      <p> amazon_sales_rank : <%= @notebook.amazon_sales_rank %> </p>
-      <p> guarantee : <%= @notebook.guarantee %> </p>
-      <p> link amazon : <a href="<%= @notebook.link_amazon %>" target='_blank'> me leve para o site da amazon</a>
+
+
+
+
+
+
+
+
     </div>
   </div>
 </html>
