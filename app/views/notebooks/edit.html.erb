@@ -3,6 +3,7 @@
     <h2>Creating notebook</h2>
     <%= simple_form_for @notebook do |f| %>
 
+      <a href="<%= @notebook.link_amazon %>" target='_blank'>Ir a loja da Amazon</a>
       <%= f.input :name %>
       <div class="form-row">
         <div class="form-group col-md-4">
@@ -41,18 +42,14 @@
         <div class="form-group col-md-4">
           <%= f.input :placa_video %>
         </div>
-
-        <div class="form-group col-md-6">
-          <%= f.input :link_amazon, hint:'Amazon' %>
+        <div class="form-group col-md-4">
+          <%= f.input :link_magalu%>
         </div>
-        <div class="form-group col-md-6">
-          <%= f.input :link_magalu, hint:'Magalu' %>
+        <div class="form-group col-md-4">
+          <%= f.input :link_americanas%>
         </div>
-        <div class="form-group col-md-6">
-          <%= f.input :link_americanas, hint:'Americanas' %>
-        </div>
-        <div class="form-group col-md-6">
-          <%= f.input :link_submarino, hint:'Submarino' %>
+        <div class="form-group col-md-4">
+          <%= f.input :link_submarino%>
         </div>
       </div>
 
