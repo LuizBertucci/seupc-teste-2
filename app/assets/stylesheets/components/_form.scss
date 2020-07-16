@@ -1,0 +1,38 @@
+.form-background{
+  background-image: image-url("form-background.jpg");
+  background-size: cover;
+  height:100%;
+  position:relative;
+
+}
+
+
+.form-info{
+  border:1px solid gray;
+  background-color:white;
+  border-radius:4px;
+  width:400px;
+  padding:8px;
+  position:relative;
+
+
+}
+
+
+.form-new-container {
+    height: 800px;
+    align-items: center;;
+}
+
+.form-new-container .form-new {
+    height: auto;
+
+    padding: 30px 30px;
+    justify-content: center;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.form-new-img {
+    width: 50%;
+}
