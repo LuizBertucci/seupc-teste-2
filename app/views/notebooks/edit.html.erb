@@ -1,30 +1,64 @@
 <div class="form-background-edit col-12" >
   <div class="form-info-edit" >
-    <h2>Editing notebook</h2>
+    <h2>Creating notebook</h2>
     <%= simple_form_for @notebook do |f| %>
 
       <%= f.input :name %>
-      <%= f.input :full_price %>
-      <%= f.input :offer_price %>
-      <%= f.input :brand %>
-      <%= f.input :modelo %>
-      <%= f.input :processor %>
-      <%= f.input :color %>
-      <%= f.input :screen %>
-      <%= f.input :ram %>
-      <%= f.input :hd %>
-      <%= f.input :ssd %>
-      <%= f.input :placa_video %>
-      <%= f.input :amazon_sales_rank %>
-      <%= f.input :guarantee %>
-      <%= f.input :link_amazon, hint:'Coloque o link de afiliado Amazon'  %>
-      <%= f.input :link_magalu, hint:'Coloque o link  de afiliado Magalu' %>
-      <%= f.input :link_americanas, hint:'Coloque o link  de afiliado Americanas' %>
-      <%= f.input :link_submarino, hint:'Coloque o link  de afiliado Submarino' %>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <%= f.input :asin, hint:'asin da amazon que garante que não tenha notebook repetido' %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :offer_price %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :processor, hint: 'i3 - i5 - i7' %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :brand %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :modelo %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :color %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :hd %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :ram %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :ssd %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :screen %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :guarantee %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :placa_video %>
+        </div>
+
+        <div class="form-group col-md-6">
+          <%= f.input :link_amazon, hint:'Amazon' %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.input :link_magalu, hint:'Magalu' %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.input :link_americanas, hint:'Americanas' %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.input :link_submarino, hint:'Submarino' %>
+        </div>
+      </div>
+
 
       <%= f.input :photo, as: :file %>
       <%= f.submit class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>
-

@@ -1,28 +1,26 @@
 <div class="fixing-margin">
   <div class="show-container">
     <div class="show-container-img">
+
       <%= cl_image_tag @notebook.photo.key%>
       <div class="show-container-icons">
-
         <% if @user %>
           <% if policy(@user).update? %>
             <%= link_to edit_notebook_path(@notebook) do%>
-              <i class="fas fa-edit"></i>
+              <i class="btn btn-lg fas fa-edit"></i>
             <% end %>
           <% end %>
 
           <% if policy(@user).destroy? %>
             <%= link_to notebook_path(@notebook), method:'DELETE', data: { confirm: "Are you sure?" } do %>
-              <i class="fas fa-trash"></i>
+              <i class="btn btn-lg fas fa-trash"></i>
             <% end %>
           <% end %>
         <% end %>
       </div>
+
       <div class="show-price">
-
-        <p> <strike> <%= @notebook.full_price %> </strike> </p>
         <p> <%= @notebook.offer_price %> </p>
-
       </div>
     </div>
 
@@ -33,30 +31,22 @@
         <h1> <%= @notebook.general_info %></h1>
       <% end %>
 
-
-
-    <!-- Bootstrap collapse code -->
-
-
-      <div class="card-header" id="headingOne" style='color:blue;'>
-            Detalhes Técnicos
+      <div class="card-header" id="headingOne" >
+        Detalhes Técnicos
       </div>
       <div class="card">
-
-            <p> brand : <%= @notebook.brand %> </p>
-            <p> modelo : <%= @notebook.modelo %> </p>
-            <p> processor : <%= @notebook.processor %> </p>
-            <p> color : <%= @notebook.color %> </p>
-            <p> screen : <%= @notebook.screen %> </p>
-            <p> weight : <%= (@notebook.weight).to_f.round(2) %> kg </p>
-            <p> ram : <%= @notebook.ram %> </p>
-            <p> hd : <%= @notebook.hd %> </p>
-            <p> ssd : <%= @notebook.ssd %> </p>
-            <p> placa_video : <%= @notebook.placa_video %> </p>
-            <p> keyboard : <%= @notebook.keyboard %> </p>
-            <p> amazon_sales_rank : <%= @notebook.amazon_sales_rank %> </p>
-            <p> guarantee : <%= @notebook.guarantee %> </p>
-            <p> link amazon : <a href="<%= @notebook.link_amazon %>" target='_blank'> me leve para o site da amazon</a>
+        <p> Marca: <%= @notebook.brand %> </p>
+        <p> Modelo: <%= @notebook.modelo %> </p>
+        <p> Processador: <%= @notebook.processor %> </p>
+        <p> Cor: <%= @notebook.color %> </p>
+        <p> Tela: <%= @notebook.screen %> </p>
+        <p> Peso: <%= (@notebook.weight).to_f.round(2) %> kg </p>
+        <p> RAM: <%= @notebook.ram %> </p>
+        <p> HD: <%= @notebook.hd %> </p>
+        <p> SSD: <%= @notebook.ssd %> </p>
+        <p> Placa de vídeo: <%= @notebook.placa_video %> </p>
+        <p> Garantia: <%= @notebook.guarantee %> </p>
+        <p> <a href="<%= @notebook.link_amazon %>" target='_blank'>Ir a loja da Amazon</a>
       </div>
     </div>
   </div>
