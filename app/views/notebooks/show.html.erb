@@ -30,44 +30,19 @@
       <% if @notebook.name %>
         <h1> <%= @notebook.name %> </h1>
       <% else %>
-         <h1> <%= @notebook.ram.split(',')[0] %></h1>
+        <h1> <%= @notebook.general_info %></h1>
       <% end %>
 
 
 
     <!-- Bootstrap collapse code -->
 
-    <div id="accordion">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h5 class="mb-0">
-            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Informações Gerais
-            </button>
-          </h5>
-        </div>
 
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body">
-            <% if @notebook.general_info%>
-              <p><%= @notebook.general_info %> </p>
-            <% else %>
-              <p><%= @notebook.ram %> </p>
-            <% end %>
-
-          </div>
-        </div>
+      <div class="card-header" id="headingOne" style='color:blue;'>
+            Detalhes Técnicos
       </div>
       <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h5 class="mb-0">
-            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Detalhes Técnicos
-            </button>
-          </h5>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-          <div class="card-body">
+
             <p> brand : <%= @notebook.brand %> </p>
             <p> modelo : <%= @notebook.modelo %> </p>
             <p> processor : <%= @notebook.processor %> </p>
