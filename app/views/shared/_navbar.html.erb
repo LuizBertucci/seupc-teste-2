@@ -5,31 +5,39 @@
     <%= image_tag "logoseupc.png" %>
   <% end %>
 
-  <!-- Login/logout -->
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false if current_user.photo.attached?%>
-          <%= image_tag "avatar-default-copy.png", crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false unless current_user.photo.attached?%>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+
 
   <!-- Adicionar notebook -->
-  <% if @user %>
-    <% if policy(@user).create? %>
-      <%= link_to new_notebook_path do%>
-        <i class="fas fa-plus-square", style='display: flex; justify-content: center; align-items: center; font-size: 48px; height:100%;'></i>
+  <div class="container-login-plus">
+
+    <% if @user %>
+      <% unless @user.id == nil %>
+        <% if policy(@user).create? %>
+          <%= link_to new_notebook_path do%>
+            <i class="fas fa-plus-square", style='display: flex; justify-content: center; align-items: center; font-size: 48px; height:100%; padding-right: 8px;'></i>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
+
+    <!-- Login/logout -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false if current_user.photo.attached?%>
+            <%= image_tag "avatar-default-copy.png", crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false unless current_user.photo.attached?%>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
 </div>

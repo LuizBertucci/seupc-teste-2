@@ -33,6 +33,9 @@ luiz.photo.attach(io:file, filename: "luiz.jpg")
 
 klismann = User.create!({ username: "Klismann", password: "123456", email: 'klismannsffer@gmail.com', admin: true})
 
+arthur = User.create!({ username: "Arthur", password: "123456", email: 'arthurfridrich@hotmail.com', admin: true})
+
+
 # Logica para fazer um request http manual para a api da amazon
 
 request = Vacuum.new(marketplace: 'BR',
