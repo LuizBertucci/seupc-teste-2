@@ -9,8 +9,19 @@
           <%= f.input :asin, hint:'asin da amazon que garante que não tenha notebook repetido' %>
         </div>
         <div class="form-group col-md-4">
-          <%= f.input :offer_price %>
+          <%= f.input :amazon_price, hint:'colocar o valor no formato R$ 1.000,00' %>
         </div>
+        <div class="form-group col-md-4">
+          <%= f.input :magalu_price, hint:"colocar o valor no formato R$ 1.000,00" %>
+        </div>
+
+        <div class="form-group col-md-4">
+          <%= f.input :submarino_price, hint:'colocar o valor no formato R$ 1.000,00' %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.input :americanas_price, hint:'colocar o valor no formato R$ 1.000,00' %>
+        </div>
+
         <div class="form-group col-md-4">
           <%= f.input :processor, hint: 'i3 - i5 - i7' %>
         </div>
