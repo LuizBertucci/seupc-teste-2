@@ -1,13 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+
+  <!-- Clica na logo pra voltar pra home -->
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logoseupc.png" %>
-    <% end %>
+  <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
+  <!-- Login/logout -->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
@@ -25,4 +23,13 @@
       <% end %>
     </ul>
   </div>
+
+  <!-- Adicionar notebook -->
+  <% if @user %>
+    <% if policy(@user).create? %>
+      <%= link_to new_notebook_path do%>
+        <i class="fas fa-plus-square", style='display: flex; justify-content: center; align-items: center; font-size: 48px; height:100%;'></i>
+      <% end %>
+    <% end %>
+  <% end %>
 </div>
