@@ -43,6 +43,11 @@
         <div class="form-group col-md-4">
           <%= f.input :amazon_price, hint:'colocar o valor no formato R$ 1.000,00' %>
         </div>
+
+        <a href="<%= @notebook.link_amazon %>" class='form-group col-md-4' target='_blank' id='amazon' >
+          <p class='btn btn-primary'> abra o link da amazon </p>
+        </a>
+
         <div class="form-group col-md-6">
           <%= f.input :link_amazon, hint:'Amazon' %>
         </div>
