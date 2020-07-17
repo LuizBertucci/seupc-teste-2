@@ -21,7 +21,7 @@
 
       <div class="show-price">
 
-        <a href="<%= @notebook.link_amazon %>" target='_blank'>
+        <a href="<%= @notebook.link_amazon %>" target='_blank' id='amazon'>
           <%= image_tag "amazon.png" %>
           <p> <%= @notebook.amazon_price %> </p>
           <p class="btn btn-lg btn-primary">Ir a loja</p>
@@ -30,17 +30,20 @@
         <a href="<%= @notebook.link_magalu %>" target='_blank' id='magalu'>
           <%= image_tag "magalu.png" %>
           <p> <%= @notebook.amazon_price %> </p>
+          <p class="btn btn-lg btn-primary">Ir a loja</p>
         </a>
 
         <a href="<%= @notebook.link_americanas %>" target='_blank' id='americanas'>
           <%= image_tag "americanas.png" %>
           <p> <%= @notebook.amazon_price %> </p>
+          <p class="btn btn-lg btn-primary">Ir a loja</p>
         </a>
 
 
         <a href="<%= @notebook.link_submarino %>" target='_blank' id='submarino'>
           <%= image_tag "submarino.png" %>
           <p> <%= @notebook.amazon_price %> </p>
+          <p class="btn btn-lg btn-primary">Ir a loja</p>
         </a>
 
 
