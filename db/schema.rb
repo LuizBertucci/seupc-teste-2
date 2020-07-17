@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_16_111900) do
+ActiveRecord::Schema.define(version: 2020_07_17_155703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_111900) do
   create_table "notebooks", force: :cascade do |t|
     t.string "bar_code"
     t.string "full_price"
-    t.string "offer_price"
+    t.string "amazon_price"
     t.string "brand"
     t.string "modelo"
     t.string "processor"
@@ -63,6 +63,9 @@ ActiveRecord::Schema.define(version: 2020_07_16_111900) do
     t.string "link_americanas"
     t.string "name"
     t.string "general_info"
+    t.string "magalu_price"
+    t.string "americanas_price"
+    t.string "submarino_price"
   end
 
   create_table "saved_notebooks", force: :cascade do |t|

@@ -93,7 +93,7 @@ while i < 11 do
     laptop = Notebook.create!(
       bar_code: (notebook[:ItemInfo][:ExternalIds][:EANs][:DisplayValues][0] if notebook[:ItemInfo][:ExternalIds]),
       full_price: notebook[:Offers][:Summaries][0][:HighestPrice][:DisplayAmount],
-      offer_price: notebook[:Offers][:Summaries][0][:LowestPrice][:DisplayAmount],
+      amazon_price: notebook[:Offers][:Summaries][0][:LowestPrice][:DisplayAmount],
       brand: notebook[:ItemInfo][:ByLineInfo][:Brand][:DisplayValue],
       modelo: (notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber]),
       processor: (notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:Size] ? notebook[:ItemInfo][:ProductInfo][:Size][:DisplayValue] : notebook[:ItemInfo][:Title][:DisplayValue]),
@@ -150,7 +150,7 @@ puts 'most 100 relevants notebooks was added to the DB'
 #       laptop = Notebook.create!(
 #         bar_code: (notebook[:ItemInfo][:ExternalIds][:EANs][:DisplayValues][0] if notebook[:ItemInfo][:ExternalIds]),
 #         full_price: notebook[:Offers][:Summaries][0][:HighestPrice][:DisplayAmount],
-#         offer_price: notebook[:Offers][:Summaries][0][:LowestPrice][:DisplayAmount],
+#         amazon_price: notebook[:Offers][:Summaries][0][:LowestPrice][:DisplayAmount],
 #         brand: (notebook[:ItemInfo][:ByLineInfo][:Brand][:DisplayValue] if notebook[:ItemInfo][:ByLineInfo] && notebook[:ItemInfo][:ByLineInfo][:Brand] ) ,
 #         modelo: (notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber]),
 #         processor: (notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:Size] ? notebook[:ItemInfo][:ProductInfo][:Size][:DisplayValue] : notebook[:ItemInfo][:Title][:DisplayValue]),
@@ -207,7 +207,7 @@ puts 'most 100 relevants notebooks was added to the DB'
 #       laptop = Notebook.create!(
 #         bar_code: (notebook[:ItemInfo][:ExternalIds][:EANs][:DisplayValues][0] if notebook[:ItemInfo][:ExternalIds]),
 #         full_price: notebook[:Offers][:Summaries][0][:HighestPrice][:DisplayAmount],
-#         offer_price: notebook[:Offers][:Summaries][0][:LowestPrice][:DisplayAmount],
+#         amazon_price: notebook[:Offers][:Summaries][0][:LowestPrice][:DisplayAmount],
 #         brand: (notebook[:ItemInfo][:ByLineInfo][:Brand][:DisplayValue] if notebook[:ItemInfo][:ByLineInfo] && notebook[:ItemInfo][:ByLineInfo][:Brand] ) ,
 #         modelo: (notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber]),
 #         processor: (notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:Size] ? notebook[:ItemInfo][:ProductInfo][:Size][:DisplayValue] : notebook[:ItemInfo][:Title][:DisplayValue]),
@@ -252,7 +252,7 @@ puts 'most 100 relevants notebooks was added to the DB'
 #    end
 #  end,
 
-#  offer_price: response_file[:SearchResult][:Items].each do |key|
+#  amazon_price: response_file[:SearchResult][:Items].each do |key|
 #    key[:Offers][:Summaries].each do |el|
 #      el[:LowestPrice][:DisplayAmount]
 #    end
