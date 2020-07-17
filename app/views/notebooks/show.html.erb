@@ -20,7 +20,31 @@
       </div>
 
       <div class="show-price">
-        <p> <%= @notebook.offer_price %> </p>
+
+        <a href="<%= @notebook.link_amazon %>" target='_blank'>
+          <%= image_tag "amazon.png" %>
+          <p> <%= @notebook.offer_price %> </p>
+        </a>
+
+        <a href="<%= @notebook.link_magalu %>" target='_blank' id='magalu'>
+          <%= image_tag "magalu.png" %>
+          <p> <%= @notebook.offer_price %> </p>
+        </a>
+
+        <a href="<%= @notebook.link_americanas %>" target='_blank' id='americanas'>
+
+          <%= image_tag "americanas.png" %>
+          <p> <%= @notebook.offer_price %> </p>
+        </a>
+
+
+        <a href="<%= @notebook.link_submarino %>" target='_blank' id='submarino'>
+
+          <%= image_tag "submarino.png" %>
+          <p> <%= @notebook.offer_price %> </p>
+        </a>
+
+
       </div>
     </div>
 
@@ -46,7 +70,7 @@
         <p> SSD: <%= @notebook.ssd %> </p>
         <p> Placa de vídeo: <%= @notebook.placa_video %> </p>
         <p> Garantia: <%= @notebook.guarantee %> </p>
-        <a href="<%= @notebook.link_amazon %>" target='_blank'>Ir a loja da Amazon</a>
+
       </div>
     </div>
   </div>
