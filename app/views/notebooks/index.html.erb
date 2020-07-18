@@ -336,7 +336,7 @@
                   <%= cl_image_tag notebook.photo.key%>
                   <div class="notebook-info-centralize">
                     <div class="notebook-info">
-                      <p class="name"><%= notebook.general_info.split('').first(65).join('') %>...</p>
+                      <p class="name"><%= notebook.name.split('').first(60).join('') %>...</p>
                       <p class="price"><%= notebook.amazon_price %></p>
                     </div>
                   </div>
