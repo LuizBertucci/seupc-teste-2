@@ -5,50 +5,51 @@
 
       <%= f.input :name %>
       <div class="form-row">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <%= f.input :asin, hint:'asin da amazon que garante que não tenha notebook repetido' %>
         </div>
 
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <%= f.input :processor, hint: 'i3 - i5 - i7' %>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <%= f.input :brand %>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <%= f.input :modelo %>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
+          <%= f.input :weight %>
+        </div>
+        <div class="form-group col-md-2">
           <%= f.input :color %>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <%= f.input :hd %>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <%= f.input :ram %>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <%= f.input :ssd %>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <%= f.input :screen %>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <%= f.input :guarantee %>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <%= f.input :placa_video %>
-        </div>
-
-        <div class="form-group col-md-4">
-          <%= f.input :amazon_price, hint:'colocar o valor no formato R$ 1.000,00' %>
         </div>
 
         <a href="<%= @notebook.link_amazon %>" class='form-group col-md-2' target='_blank' id='amazon' >
           <p class='btn btn-primary'> abra o link da amazon </p>
         </a>
-
-        <div class="form-group col-md-10">
+        <div class="form-group col-md-2">
+          <%= f.input :amazon_price, hint:'colocar o valor no formato R$ 1.000,00' %>
+        </div>
+        <div class="form-group col-md-6">
           <%= f.input :link_amazon, hint:'Amazon' %>
         </div>
 
