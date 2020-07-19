@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_17_155703) do
+ActiveRecord::Schema.define(version: 2020_07_19_213430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_155703) do
     t.string "modelo"
     t.string "processor"
     t.string "color"
-    t.string "screen"
+    t.string "screen_size"
     t.string "weight"
     t.string "ram"
     t.string "hd"
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 2020_07_17_155703) do
     t.string "magalu_price"
     t.string "americanas_price"
     t.string "submarino_price"
+    t.string "screen_type"
+    t.string "screen_width"
   end
 
   create_table "saved_notebooks", force: :cascade do |t|
