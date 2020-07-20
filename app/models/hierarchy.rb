@@ -1,5 +1,3 @@
 class Hierarchy < ApplicationRecord
-  def init
-    self.admin ||= true
-  end
+  belongs_to :notebook
 end

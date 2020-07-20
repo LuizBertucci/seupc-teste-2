@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :notebooks, only: [:index, :new, :show, :create, :edit, :update, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'notebooks#index'
+  resources :hierarchies, only: [:index, :show, :new, :create, :edit, :destroy]
 
 
 end

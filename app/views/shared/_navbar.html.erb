@@ -5,11 +5,10 @@
     <%= image_tag "logoseupc.png" %>
   <% end %>
 
-
+  <%= link_to "Hierarchy", hierarchies_path %>
 
   <!-- Adicionar notebook -->
   <div class="container-login-plus">
-
     <% if @user %>
       <% unless @user.id == nil %>
         <% if policy(@user).create? %>
@@ -19,7 +18,6 @@
         <% end %>
       <% end %>
     <% end %>
-
     <!-- Login/logout -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
