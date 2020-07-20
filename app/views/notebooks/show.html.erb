@@ -29,20 +29,20 @@
 
         <a href="<%= @notebook.link_magalu %>" target='_blank' id='magalu'>
           <%= image_tag "magalu.png" %>
-          <p> <%= @notebook.amazon_price %> </p>
+          <p> <%= @notebook.magalu_price %> </p>
           <p class="btn btn-lg btn-primary">Ir a loja</p>
         </a>
 
         <a href="<%= @notebook.link_americanas %>" target='_blank' id='americanas'>
           <%= image_tag "americanas.png" %>
-          <p> <%= @notebook.amazon_price %> </p>
+          <p> <%= @notebook.americanas_price %> </p>
           <p class="btn btn-lg btn-primary">Ir a loja</p>
         </a>
 
 
         <a href="<%= @notebook.link_submarino %>" target='_blank' id='submarino'>
           <%= image_tag "submarino.png" %>
-          <p> <%= @notebook.amazon_price %> </p>
+          <p> <%= @notebook.submarino_price %> </p>
           <p class="btn btn-lg btn-primary">Ir a loja</p>
         </a>
 
@@ -61,10 +61,10 @@
         <p> Cor: <%= @notebook.color %> </p>
         <p> Modelo: <%= @notebook.modelo %> </p>
         <p> Processador: <%= @notebook.processor %> </p>
-        <p> Tela: <%= @notebook.screen_quality %> <%= @notebook.screen_size %>" </p>
         <p> Peso: <%= (@notebook.weight).to_f.round(2) %> kg </p>
         <p> RAM: <%= @notebook.ram %> </p>
         <p> HD: <%= @notebook.hd %> </p>
+        <p> Tela: <%= @notebook.screen_quality %> <%= @notebook.screen_size %>" </p>
         <p> SSD: <%= @notebook.ssd %> </p>
         <p> Placa de vídeo: <%= @notebook.placa_video %> </p>
 
