@@ -51,27 +51,22 @@
     </div>
 
     <div class="show-container-info">
-      <% if @notebook.name %>
-        <h1> <%= @notebook.name %> </h1>
-      <% else %>
-        <h1> <%= @notebook.general_info %></h1>
-      <% end %>
+      <h2> <%= @notebook.name %> </h2>
 
       <div class="card-header" id="headingOne" >
         Detalhes Técnicos
       </div>
       <div class="card">
         <p> Marca: <%= @notebook.brand %> </p>
+        <p> Cor: <%= @notebook.color %> </p>
         <p> Modelo: <%= @notebook.modelo %> </p>
         <p> Processador: <%= @notebook.processor %> </p>
-        <p> Cor: <%= @notebook.color %> </p>
-        <p> Tela: <%= @notebook.screen_quality %> </p>
+        <p> Tela: <%= @notebook.screen_size %>" </p>
         <p> Peso: <%= (@notebook.weight).to_f.round(2) %> kg </p>
         <p> RAM: <%= @notebook.ram %> </p>
         <p> HD: <%= @notebook.hd %> </p>
         <p> SSD: <%= @notebook.ssd %> </p>
         <p> Placa de vídeo: <%= @notebook.placa_video %> </p>
-        <p> Garantia: <%= @notebook.guarantee %> </p>
 
       </div>
     </div>

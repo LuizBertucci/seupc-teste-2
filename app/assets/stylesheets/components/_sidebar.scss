@@ -37,8 +37,8 @@ body > div.fixing-margin > div > div.container.flex-center > div > div:nth-child
 // Criando o container
 
 .container {
-  width:16vw;
-  margin:0;
+  width: 19vw;
+  margin: 0;
 }
 .container-check {
   display: block;
@@ -163,5 +163,4 @@ body > div.fixing-margin > div > div.container.flex-center > div > div:nth-child
 .overflow {
   overflow-y: scroll;
   height: 165px; //145px
-  width: 240px;
 }

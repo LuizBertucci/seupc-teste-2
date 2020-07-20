@@ -10,38 +10,45 @@
         </div>
 
         <div class="form-group col-md-2">
-          <%= f.input :processor, hint: 'i3 - i5 - i7' %>
-        </div>
-        <div class="form-group col-md-2">
           <%= f.input :brand %>
         </div>
         <div class="form-group col-md-2">
           <%= f.input :modelo %>
         </div>
         <div class="form-group col-md-2">
-          <%= f.input :weight %>
+          <%= f.input :processor, hint: 'i3 - i5 - i7' %>
         </div>
-        <div class="form-group col-md-2">
-          <%= f.input :color %>
+        <div class="form-group col-md-1">
+          <%= f.input :ram %>
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-1">
           <%= f.input :hd %>
         </div>
-        <div class="form-group col-md-2">
-          <%= f.input :ram %>
+        <div class="form-group col-md-1">
+          <%= f.input :weight, hint: 'Não precisa colocar Kg' %>
+        </div>
+        <div class="form-group col-md-1">
+          <%= f.input :color %>
         </div>
         <div class="form-group col-md-2">
           <%= f.input :ssd %>
         </div>
+
         <div class="form-group col-md-2">
-          <%= f.input :screen_quality %>
+          <%= f.input :screen_quality, hint: 'Full HD?' %>
         </div>
         <div class="form-group col-md-2">
-          <%= f.input :guarantee %>
+          <%= f.input :screen_size, hint: '13 - 14 - 15.6' %>
         </div>
         <div class="form-group col-md-2">
-          <%= f.input :placa_video %>
+          <%= f.input :screen_width, hint: 'Ultrafino?' %>
         </div>
+
+        <div class="form-group col-md-4">
+          <%= f.input :placa_video, hint: 'Integrado / ...' %>
+        </div>
+
+        <!-- Lojas -->
 
         <a href="<%= @notebook.link_amazon %>" class='form-group col-md-2' target='_blank' id='amazon' >
           <p class='btn btn-primary'> abra o link da amazon </p>
@@ -49,28 +56,28 @@
         <div class="form-group col-md-2">
           <%= f.input :amazon_price, hint:'colocar o valor no formato R$ 1.000,00' %>
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-8">
           <%= f.input :link_amazon, hint:'Amazon' %>
         </div>
 
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <%= f.input :magalu_price, hint:"colocar o valor no formato R$ 1.000,00" %>
         </div>
-        <div class="form-group col-md-8">
+        <div class="form-group col-md-10">
           <%= f.input :link_magalu, hint:'Magalu' %>
         </div>
 
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <%= f.input :submarino_price, hint:'colocar o valor no formato R$ 1.000,00' %>
         </div>
-        <div class="form-group col-md-8">
+        <div class="form-group col-md-10">
           <%= f.input :link_submarino, hint:'Submarino' %>
         </div>
 
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <%= f.input :americanas_price, hint:'colocar o valor no formato R$ 1.000,00' %>
         </div>
-        <div class="form-group col-md-8">
+        <div class="form-group col-md-10">
           <%= f.input :link_americanas, hint:'Americanas' %>
         </div>
 
