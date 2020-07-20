@@ -41,10 +41,10 @@ matheus.photo.attach(io:file, filename: "matheus.jpg")
 
 # Logica para fazer um request http manual para a api da amazon
 
-request = Vacuum.new(marketplace: 'BR',
-                     access_key: 'AKIAJDG2EY7UPZXAW4TA',
-                     secret_key: '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',
-                     partner_tag: 'seupc01-20')
+# request = Vacuum.new(marketplace: 'BR',
+#                      access_key: 'AKIAJDG2EY7UPZXAW4TA',
+#                      secret_key: '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',
+#                      partner_tag: 'seupc01-20')
 
 #----------------------------
 # # Loop de 10 vezes para popular o DB, cada request so retornam 10 notebooks.
@@ -76,55 +76,55 @@ request = Vacuum.new(marketplace: 'BR',
 
 #==========================================
 # # Parseando meu temporary.json gerado pela api da Amazon
-# i = 1
+i = 1
 
-# while i < 11 do
+while i < 11 do
 
-#   puts "lendo temp_relevance_#{i}.json"
+  puts "lendo temp_relevance_#{i}.json"
 
-#   filepath = "db/temporaryfiles/temp_relevance_#{i}.json"
+  filepath = "db/temporaryfiles/temp_relevance_#{i}.json"
 
-#   response = File.read(filepath)
+  response = File.read(filepath)
 
-#   response_file = eval(response)
+  response_file = eval(response)
 
-#   # logica para ler o primeiro response file com 10 itens, gerando novos 10 itens para o nosso DB
+  # logica para ler o primeiro response file com 10 itens, gerando novos 10 itens para o nosso DB
 
-#   notebooks = response_file[:SearchResult][:Items]
+  notebooks = response_file[:SearchResult][:Items]
 
-#   notebooks.each do |notebook|
-#     laptop = Notebook.create!(
-#       bar_code: (notebook[:ItemInfo][:ExternalIds][:EANs][:DisplayValues][0] if notebook[:ItemInfo][:ExternalIds]),
-#       full_price: notebook[:Offers][:Summaries][0][:HighestPrice][:DisplayAmount],
-#       amazon_price: notebook[:Offers][:Summaries][0][:LowestPrice][:DisplayAmount],
-#       brand: notebook[:ItemInfo][:ByLineInfo][:Brand][:DisplayValue],
-#       modelo: (notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber]),
-#       processor: (notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:Size] ? notebook[:ItemInfo][:ProductInfo][:Size][:DisplayValue] : notebook[:ItemInfo][:Title][:DisplayValue]),
-#       color: (notebook[:ItemInfo][:ProductInfo][:Color][:DisplayValue] if notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:Color]),
-#       screen: notebook[:ItemInfo][:Title][:DisplayValue],
-#       weight: (notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:ItemDimensions] && notebook[:ItemInfo][:ProductInfo][:ItemDimensions][:Weight]? notebook[:ItemInfo][:ProductInfo][:ItemDimensions][:Weight][:DisplayValue].to_i * 0.453592 : notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
-#       ram: notebook[:ItemInfo][:Title][:DisplayValue],
-#       hd: (notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
-#       ssd: (notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
-#       placa_video: (notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
-#       keyboard: (notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
-#       amazon_sales_rank: (notebook[:BrowseNodeInfo][:WebsiteSalesRank][:SalesRank] if notebook[:BrowseNodeInfo]) ,
-#       guarantee: (notebook[:ItemInfo][:ManufactureInfo][:Warranty][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:Warranty] ),
-#       link_amazon: notebook[:DetailPageURL],
-#       general_info: notebook[:ItemInfo][:Title][:DisplayValue],
-#       asin: notebook[:ASIN] # identificador da amazon(chave primaria), que garante que cada produto seja diferente um do outro
-#     )
+  notebooks.each do |notebook|
+    laptop = Notebook.create!(
+      bar_code: (notebook[:ItemInfo][:ExternalIds][:EANs][:DisplayValues][0] if notebook[:ItemInfo][:ExternalIds]),
+      full_price: notebook[:Offers][:Summaries][0][:HighestPrice][:DisplayAmount],
+      amazon_price: notebook[:Offers][:Summaries][0][:LowestPrice][:DisplayAmount],
+      brand: notebook[:ItemInfo][:ByLineInfo][:Brand][:DisplayValue],
+      modelo: (notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:ItemPartNumber]),
+      processor: (notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:Size] ? notebook[:ItemInfo][:ProductInfo][:Size][:DisplayValue] : notebook[:ItemInfo][:Title][:DisplayValue]),
+      color: (notebook[:ItemInfo][:ProductInfo][:Color][:DisplayValue] if notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:Color]),
+    #   screen: notebook[:ItemInfo][:Title][:DisplayValue],
+      weight: (notebook[:ItemInfo][:ProductInfo] && notebook[:ItemInfo][:ProductInfo][:ItemDimensions] && notebook[:ItemInfo][:ProductInfo][:ItemDimensions][:Weight]? notebook[:ItemInfo][:ProductInfo][:ItemDimensions][:Weight][:DisplayValue].to_i * 0.453592 : notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
+      ram: notebook[:ItemInfo][:Title][:DisplayValue],
+      hd: (notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
+      ssd: (notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
+      placa_video: (notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
+      keyboard: (notebook[:ItemInfo][:Features][:DisplayValues] if notebook[:ItemInfo][:Features]),
+      amazon_sales_rank: (notebook[:BrowseNodeInfo][:WebsiteSalesRank][:SalesRank] if notebook[:BrowseNodeInfo]) ,
+      guarantee: (notebook[:ItemInfo][:ManufactureInfo][:Warranty][:DisplayValue] if notebook[:ItemInfo][:ManufactureInfo] && notebook[:ItemInfo][:ManufactureInfo][:Warranty] ),
+      link_amazon: notebook[:DetailPageURL],
+      general_info: notebook[:ItemInfo][:Title][:DisplayValue],
+      asin: notebook[:ASIN] # identificador da amazon(chave primaria), que garante que cada produto seja diferente um do outro
+    )
 
 #     # adicionando a foto a cada notebook
-#     file = open(notebook[:Images][:Primary][:Large][:URL])
-#     laptop.photo.attach(io: file, filename: "randomavatar.jpg")
+    file = open(notebook[:Images][:Primary][:Large][:URL])
+    laptop.photo.attach(io: file, filename: "randomavatar.jpg")
 
-#     puts '+ 1 notebook added to our DB'
-#   end
-#   puts 'notebooks sucessfully added to your database'
+    puts '+ 1 notebook added to our DB'
+  end
+  puts 'notebooks sucessfully added to your database'
 
-#   i += 1
-# end
+  i += 1
+end
 
 # puts 'most 100 relevants notebooks was added to the DB'
 
