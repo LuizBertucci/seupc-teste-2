@@ -69,12 +69,12 @@ class NotebooksController < ApplicationController
   end
 
   def notebooks_params
-    params.require(:notebook).permit(:bar_code, :full_price,
+    params.require(:notebook).permit(:bar_code, :modelo_especifico,
     :name, :brand, :modelo, :processor, :color, :ram, :hd, :weight, :ssd,
     :screen_quality, :screen_size, :screen_width, :placa_video, :keyboard,
     :amazon_sales_rank, :guarantee,
-    :link_magalu, :magalu_price,
     :link_amazon, :amazon_price,
+    :link_magalu, :magalu_price,
     :link_submarino, :submarino_price,
     :link_americanas, :americanas_price)
   end

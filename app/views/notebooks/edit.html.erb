@@ -9,13 +9,16 @@
           <%= f.input :asin, hint:'asin da amazon que garante que não tenha notebook repetido' %>
         </div>
 
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-1">
           <%= f.input :brand %>
         </div>
         <div class="form-group col-md-2">
           <%= f.input :modelo %>
         </div>
         <div class="form-group col-md-2">
+          <%= f.input :modelo_especifico %>
+        </div>
+        <div class="form-group col-md-1">
           <%= f.input :processor, hint: 'i3 - i5 - i7' %>
         </div>
         <div class="form-group col-md-1">
@@ -25,7 +28,7 @@
           <%= f.input :hd %>
         </div>
         <div class="form-group col-md-1">
-          <%= f.input :weight, hint: 'Não precisa colocar Kg' %>
+          <%= f.input :weight, hint: 'Colocar "." e sem KG' %>
         </div>
         <div class="form-group col-md-1">
           <%= f.input :color %>
