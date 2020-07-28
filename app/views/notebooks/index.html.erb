@@ -330,7 +330,7 @@
 
           <!-- Lógica para só o admin ver o notebook verde depois de editado -->
           <% if current_user && current_user.admin == true %>
-            <% if notebook.edited  %>
+            <% if !notebook.name.nil?  %>
               <%= link_to notebook_path(notebook), data: { turbolinks: false }, style:'border:3px solid green;' do %>
                 <div class="notebook-card">
                   <%= cl_image_tag notebook.photo.key%>
