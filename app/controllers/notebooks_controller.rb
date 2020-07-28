@@ -62,6 +62,11 @@ class NotebooksController < ApplicationController
     redirect_to notebook_path
   end
 
+  def list
+    authorize current_user
+    @notebooks = Notebook.all.order(position: :asc)
+  end
+
   private
 
   def find_notebook
@@ -76,6 +81,6 @@ class NotebooksController < ApplicationController
     :link_amazon, :amazon_price,
     :link_magalu, :magalu_price,
     :link_submarino, :submarino_price,
-    :link_americanas, :americanas_price)
+    :link_americanas, :americanas_price, :position)
   end
 end

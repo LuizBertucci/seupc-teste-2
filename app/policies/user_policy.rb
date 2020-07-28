@@ -25,5 +25,9 @@ class UserPolicy < ApplicationPolicy
     @user.admin
   end
 
+  def list?
+    @user.admin
+  end
+
 
 end
