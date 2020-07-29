@@ -1,0 +1,25 @@
+<div class="container-fluid">
+
+  <% @notebooks.each do |notebook| %>
+  
+    <div class="card-list">
+      <img src="<%= cl_path(notebook.photo.key) %>" />
+      <div class="card-list-content">
+        <div class="card-list-infos">
+          <h2>Position - <%= notebook.position %></h2>
+          <h2>Id - <%= notebook.id %></h2>
+          <p>Nome - <%= notebook.name %></p>
+          <p>Marca - <%= notebook.brand %></p>
+          <p>Modelo - <%= notebook.modelo %></p>
+        </div>
+        <div class="card-form">
+          <%= link_to edit_notebook_path(notebook) do %>
+            <i class="btn btn-lg fas fa-edit"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>

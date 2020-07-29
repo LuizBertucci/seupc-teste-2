@@ -35,9 +35,9 @@ klismann = User.create!({ username: "Klismann", password: "123456", email: 'klis
 
 arthur = User.create!({ username: "Arthur", password: "123456", email: 'arthurfridrich@hotmail.com', admin: true})
 
-matheus = User.create!({ username: "Matheus", password: "123456", email: 'moreira.mferreira@gmail.com', admin: true})
+yuri = User.create!({ username: "Yuri", password: "123456", email: 'ygravata@gmail.com', admin: true})
 file = open("https://ca.slack-edge.com/T02NE0241-U012667MY2X-dad935f9dc0c-512")
-matheus.photo.attach(io:file, filename: "matheus.jpg")
+yuri.photo.attach(io:file, filename: "matheus.jpg")
 
 # Logica para fazer um request http manual para a api da amazon
 
