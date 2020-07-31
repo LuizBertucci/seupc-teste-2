@@ -64,6 +64,7 @@ class NotebooksController < ApplicationController
 
   def list
     authorize current_user
+    @tags = Tag.all.order(created_at: :asc)
     @notebooks = Notebook.all.order(position: :asc)
   end
 

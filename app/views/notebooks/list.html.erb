@@ -1,25 +1,49 @@
-<div class="container-fluid">
+<div class="fixing-margin">
 
-  <% @notebooks.each do |notebook| %>
+  <div class="d-flex justify-content-between">
+    <div class="list-content">
+        <% @notebooks.each do |notebook| %>
 
-    <div class="card-list">
-      <img src="<%= cl_path(notebook.photo.key) %>" />
-      <div class="card-list-content">
-        <div class="card-list-infos">
-          <h2>Position - <%= notebook.position %></h2>
-          <!-- <h2>Id - <%= notebook.id %></h2> -->
-          <h2><%= notebook.name %></h2>
-          <!-- <p>Marca - <%= notebook.brand %></p> -->
-          <!-- <p>Modelo - <%= notebook.modelo %></p> -->
-        </div>
-        <div class="card-form">
-          <%= link_to edit_notebook_path(notebook) do %>
-            <i class="btn btn-lg fas fa-edit"></i>
-          <% end %>
-        </div>
-      </div>
+          <div class="card-list">
+            <div class="card-list-content">
+              <img src="<%= cl_path(notebook.photo.key) %>" />
+              <div class="card-list-infos">
+                <h2>Position - <%= notebook.position %></h2>
+                <!-- <h2>Id - <%= notebook.id %></h2> -->
+                <p>Nome: <%= notebook.name %></p>
+                <!-- <p>Marca - <%= notebook.brand %></p> -->
+                <!-- <p>Modelo - <%= notebook.modelo %></p> -->
+                <p>Tags: 
+                  <% notebook.tags.each do |tag| %>
+                  <%= tag.name %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+            <div class="card-actions">
+              <%= link_to edit_notebook_path(notebook) do %>
+                <i class="btn btn-lg fas fa-edit"></i>
+              <% end %>
+            </div>
+          </div>
+
+        <% end %>
+
     </div>
 
-  <% end %>
+     
+     <!-- SIDEBAR -->
+     <div class="sidebar-list-container">
+        <div class="sidebar-list">
+
+          <div class="sidebar-title">
+          <%= render :partial => "tags/index" , locals: {tags: @tags}%>
+          </div>
+
+        </div>
+     </div>
+  </div>
+
 
 </div>
+
