@@ -5,16 +5,19 @@
     <%= image_tag "logoseupc.png" %>
   <% end %>
 
-
-
   <!-- Adicionar notebook -->
   <div class="container-login-plus">
 
-    <% if @user %>
-      <% unless @user.id == nil %>
-        <% if policy(@user).create? %>
+    <% if current_user %>
+      <% unless current_user.id == nil %>
+        <% if policy(current_user).create? %>
           <%= link_to new_notebook_path do%>
-            <i class="fas fa-plus-square", style='display: flex; justify-content: center; align-items: center; font-size: 48px; height:100%; padding-right: 8px;'></i>
+            <i class="fas fa-plus-square", style='display: flex; justify-content: center; align-items: center; font-size: 32px; height:100%; padding-right: 8px;'></i>
+          <% end %>
+        <% end %>
+        <% if policy(current_user).create? %>
+          <%= link_to new_tag_path do%>
+            <i class="fas fa-tags", style='display: flex; justify-content: center; align-items: center; font-size: 22px; height:100%; padding-right: 8px;'></i>
           <% end %>
         <% end %>
       <% end %>

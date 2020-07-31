@@ -6,6 +6,9 @@ class Notebook < ApplicationRecord
   
   acts_as_list column: :position, add_new_at: :bottom
 
+  has_many :taggings
+  has_many :tags, through: :taggings
+
   def init
     self.edited ||= false
   end
