@@ -12,12 +12,12 @@
       <% unless current_user.id == nil %>
         <% if policy(current_user).create? %>
           <%= link_to list_notebooks_path do%>
-            <i class="fas fa-laptop", style='display: flex; justify-content: center; align-items: center; font-size: 22px; height:100%; padding-right: 8px;'></i>
+            <i class="fas fa-laptop", style='display: flex; justify-content: center; align-items: center; font-size: 22px; height:100%; padding-right: 25px;'></i>
           <% end %>
         <% end %>
         <% if policy(current_user).create? %>
           <%= link_to new_notebook_path do%>
-            <i class="fas fa-plus-square", style='display: flex; justify-content: center; align-items: center; font-size: 32px; height:100%; padding-right: 8px;'></i>
+            <i class="fas fa-plus-square", style='display: flex; justify-content: center; align-items: center; font-size: 32px; height:100%; padding-right: 25px;'></i>
           <% end %>
         <% end %>
       <% end %>
