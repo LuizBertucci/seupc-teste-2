@@ -1,3 +1,12 @@
+<div class="form-info-edit col-6" >
+  <%= simple_form_for @tag do  |f| %>
+    <%= f.input :name %>
+    <%= f.input :rank %>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+
 <%# <%= simple_form_for @tag do  |f| %>
 <%# <div class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
@@ -21,9 +30,3 @@
   </div> %>
 <%# </div> %>
 <%# <% end %>
-
-<%= simple_form_for @tag do  |f| %>
-  <%= f.input :name %>
-  <%= f.input :rank %>
-  <%= f.button :submit, "Create this Tag!" %> 
-<% end %>      

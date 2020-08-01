@@ -2,19 +2,19 @@
   <div class="d-flex justify-content-between p-3">
     <div>
       <p><%= tag.id %> - <%= tag.name %></p>
-      <p style="font-size: 12px;">Notebooks tagged: <%= tag.taggings.count %></p>
+      <p style="font-size: 12px;">Index minimo: <%= tag.taggings.count %></p>
     </div>
 
     <div>
       <%= link_to edit_tag_path(tag) do %>
         <i class="btn btn-lg fas fa-edit"></i>
-      <% end %>      
+      <% end %>
 
       <% if policy(current_user).destroy? %>
         <%= link_to tag_path(tag), method:'DELETE', data: { confirm: "Are you sure?" } do %>
           <i class="btn btn-lg fas fa-trash"></i>
-        <% end %>      
-      <% end %>      
+        <% end %>
+      <% end %>
     </div>
 
   </div>

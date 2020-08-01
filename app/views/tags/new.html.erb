@@ -1,4 +1,6 @@
-<%= simple_form_for @tag do  |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit, "Create this Tag!" %>
-<% end %>
+<div class="form-info-edit col-6" >
+  <%= simple_form_for @tag do  |f| %>
+    <%= f.input :name %>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+</div>
