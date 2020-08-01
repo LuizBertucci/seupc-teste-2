@@ -11,13 +11,13 @@
     <% if current_user %>
       <% unless current_user.id == nil %>
         <% if policy(current_user).create? %>
-          <%= link_to new_notebook_path do%>
-            <i class="fas fa-plus-square", style='display: flex; justify-content: center; align-items: center; font-size: 32px; height:100%; padding-right: 8px;'></i>
+          <%= link_to list_notebooks_path do%>
+            <i class="fas fa-laptop", style='display: flex; justify-content: center; align-items: center; font-size: 22px; height:100%; padding-right: 8px;'></i>
           <% end %>
         <% end %>
         <% if policy(current_user).create? %>
-          <%= link_to new_tag_path do%>
-            <i class="fas fa-tags", style='display: flex; justify-content: center; align-items: center; font-size: 22px; height:100%; padding-right: 8px;'></i>
+          <%= link_to new_notebook_path do%>
+            <i class="fas fa-plus-square", style='display: flex; justify-content: center; align-items: center; font-size: 32px; height:100%; padding-right: 8px;'></i>
           <% end %>
         <% end %>
       <% end %>
@@ -32,12 +32,12 @@
             <%= image_tag "avatar-default-copy.png", crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false unless current_user.photo.attached?%>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-    
+
               <% if current_user && current_user.admin == true %>
-                <%= link_to "Ranking", list_notebooks_path, class: "dropdown-item" %>   
+                <%= link_to "Ranking", list_notebooks_path, class: "dropdown-item" %>
               <% end %>
-              
-            </div>           
+
+            </div>
           </li>
         <% else %>
           <li class="nav-item">

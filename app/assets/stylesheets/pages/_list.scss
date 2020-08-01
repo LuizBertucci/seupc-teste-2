@@ -51,10 +51,17 @@
 }
 
 .card-actions {
-  padding-right: 12px;  
+  padding-right: 12px;
 }
 
-.sidebar-list {
+
+.list-tags-container{
+  margin-right: 20px;
+  flex: 0 0 30%;
+  padding: 10px;
+}
+
+.list-tags {
   padding: 10px;
   overflow-x: hidden;
   border-radius: 5px;
@@ -62,9 +69,20 @@
   background-color: #f3f3f3;
 }
 
-.sidebar-list-container{
-  margin-right: 20px;
-  flex: 0 0 30%;
-  padding: 10px;
+.list-tags-top {
+  display: flex;
+  justify-content: space-between;
+}
 
+// Título da sidebar
+.list-tags-title h3 {
+  font-size: 18px;
+}
+
+.list-tags-title p {
+  font-size: 14px;
+}
+
+.list-tags-title li {
+  font-size: 14px;
 }
