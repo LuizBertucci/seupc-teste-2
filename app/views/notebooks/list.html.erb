@@ -9,12 +9,15 @@
             <img src="<%= cl_path(notebook.photo.key) %>" />
             <div class="card-list-infos">
               <h2>Position - <%= notebook.position %></h2>
-              <p><%= notebook.name %></p>
-              <p>Tags:
+              <p>ASIN: <%= notebook.asin %>, <%= notebook.brand %> <%= notebook.modelo%> <%= notebook.modelo_especifico%> <%= notebook.processor %> <%= notebook.ram%> <%= notebook.hd %></p>
+              <a href="<%= notebook.link_amazon %>" class='form-group col-md-2' target='_blank' id='amazon' >
+                <p class='btn btn-primary'> abra o link da amazon </p>
+              </a>
+              <!-- <p>Tags:
                 <% notebook.tags.each do |tag| %>
                 <%= tag.name %> -
                 <% end %>
-              </p>
+              </p> -->
             </div>
           </div>
           <div class="card-actions">
