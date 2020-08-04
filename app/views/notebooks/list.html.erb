@@ -3,30 +3,41 @@
   <div class="d-flex justify-content-between">
     <div class="list-content">
       <% @notebooks.each do |notebook| %>
+        <!-- Lógica para só o admin ver o notebook verde depois de editado -->
+        <% if current_user.admin %>
+          <% if notebook.price_count == 4  %>
+            <div class="card-list" style="border:3px solid green;">
+          <% elsif notebook.price_count == 3 %>
+            <div class="card-list" style="border:3px solid yellow;">
+          <% elsif notebook.price_count == 2 %>
+            <div class="card-list" style="border:3px solid orange;">
+          <% elsif notebook.price_count <= 1 %>
+            <div class="card-list" style="border:3px solid red;">
+          <% end %>
+        <% end %>
 
-        <div class="card-list">
-          <div class="card-list-content">
-            <img src="<%= cl_path(notebook.photo.key) %>" />
-            <div class="card-list-infos">
-              <h2>Position - <%= notebook.position %></h2>
-              <p>ASIN: <%= notebook.asin %>, <%= notebook.brand %> <%= notebook.modelo %> <%= notebook.modelo_especifico %> <%= notebook.processor %> <%= notebook.ram %> <%= notebook.hd %></p>
-              <a href="<%= notebook.link_amazon %>" class='form-group col-md-2' target='_blank' id='amazon' >
-                <p class='btn btn-primary'> abra o link da amazon </p>
-              </a>
-              <p><%= notebook.name %></p>
-              <!-- <p>Tags:
-                <% notebook.tags.each do |tag| %>
-                <%= tag.name %> -
+              <div class="card-list-content">
+                <img src="<%= cl_path(notebook.photo.key) %>" />
+                <div class="card-list-infos">
+                  <h2>Position - <%= notebook.position %></h2>
+                  <p>ASIN: <%= notebook.asin %>, <%= notebook.brand %> <%= notebook.modelo %> <%= notebook.modelo_especifico %> <%= notebook.processor %> <%= notebook.ram %> <%= notebook.hd %></p>
+                  <a href="<%= notebook.link_amazon %>" class='form-group col-md-2' target='_blank' id='amazon' >
+                    <p class='btn btn-primary'> abra o link da amazon </p>
+                  </a>
+                  <p><%= notebook.name %></p>
+                  <!-- <p>Tags:
+                    <% notebook.tags.each do |tag| %>
+                    <%= tag.name %> -
+                    <% end %>
+                  </p> -->
+                </div>
+              </div>
+              <div class="card-actions">
+                <%= link_to edit_notebook_path(notebook) do %>
+                  <i class="btn btn-lg fas fa-edit"></i>
                 <% end %>
-              </p> -->
+              </div>
             </div>
-          </div>
-          <div class="card-actions">
-            <%= link_to edit_notebook_path(notebook) do %>
-              <i class="btn btn-lg fas fa-edit"></i>
-            <% end %>
-          </div>
-        </div>
 
       <% end %>
 

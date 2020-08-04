@@ -13,4 +13,15 @@ class Notebook < ApplicationRecord
     self.edited ||= false
   end
 
+  def price_count
+    array = [self.amazon_price, self.submarino_price, self.magalu_price, self.americanas_price ]
+    counter = 0
+
+    array.each do |price|
+      counter += 1 if price.chars.count > 4 unless price.nil?
+    end
+
+    counter
+  end
+
 end
