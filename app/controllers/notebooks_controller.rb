@@ -31,7 +31,7 @@ class NotebooksController < ApplicationController
   def create
     @notebook = Notebook.new(notebooks_params)
     authorize current_user
-    
+
     if @notebook.save
       redirect_to notebook_path(@notebook)
     else
@@ -78,6 +78,6 @@ class NotebooksController < ApplicationController
     :link_amazon, :amazon_price,
     :link_magalu, :magalu_price,
     :link_submarino, :submarino_price,
-    :link_americanas, :americanas_price, :position, :notebook, :photo)
+    :link_americanas, :americanas_price, :position, :photo)
   end
 end
