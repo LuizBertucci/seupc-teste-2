@@ -3,8 +3,7 @@ class NotebooksController < ApplicationController
   before_action :find_notebook, only: [:show, :edit, :update]
 
   def index
-    @user = current_user
-    @notebooks = policy_scope(Notebook)
+  @notebooks = policy_scope(Notebook)
     if params[:search]
       if params[:search][:query]
         @notebookresult = Notebook.find_by(name: params[:search][:query])
@@ -22,17 +21,17 @@ class NotebooksController < ApplicationController
 
   def show
     skip_authorization
-    @user = current_user
   end
 
   def new
     @notebook = Notebook.new
-    @user = current_user
-    authorize @user
+    authorize current_user
   end
 
   def create
     @notebook = Notebook.new(notebooks_params)
+    authorize current_user
+    
     if @notebook.save
       redirect_to notebook_path(@notebook)
     else
@@ -41,21 +40,18 @@ class NotebooksController < ApplicationController
   end
 
   def edit
-    @user = current_user
-    authorize @user
+    authorize current_user
   end
 
   def destroy
-    @user = current_user
-    authorize @user
+    authorize current_user
     @notebook = Notebook.find(params[:id])
     @notebook.destroy
     redirect_to notebooks_path
   end
 
   def update
-    @user = current_user
-    authorize @user
+    authorize current_user
     @notebook.edited = true
     @notebook.update(notebooks_params)
 
@@ -75,13 +71,13 @@ class NotebooksController < ApplicationController
   end
 
   def notebooks_params
-    params.require(:notebook).permit(:bar_code, :modelo_especifico,
+    params.require(:notebook).permit(:bar_code, :modelo_especifico,:asin,
     :name, :brand, :modelo, :processor, :color, :ram, :hd, :weight, :ssd,
     :screen_quality, :screen_size, :screen_width, :placa_video, :keyboard,
     :amazon_sales_rank, :guarantee,
     :link_amazon, :amazon_price,
     :link_magalu, :magalu_price,
     :link_submarino, :submarino_price,
-    :link_americanas, :americanas_price, :position)
+    :link_americanas, :americanas_price, :position, :notebook, :photo)
   end
 end
