@@ -1,6 +1,8 @@
 class Notebook < ApplicationRecord
 
   has_one_attached :photo
+  has_many_attached :pictures
+
   validates :asin, presence: true, uniqueness: true
   after_initialize :init
   

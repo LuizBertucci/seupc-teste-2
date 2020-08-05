@@ -78,6 +78,6 @@ class NotebooksController < ApplicationController
     :link_amazon, :amazon_price,
     :link_magalu, :magalu_price,
     :link_submarino, :submarino_price,
-    :link_americanas, :americanas_price, :position, :notebook, :photo)
+    :link_americanas, :americanas_price, :position, :photo, pictures: [])
   end
 end
