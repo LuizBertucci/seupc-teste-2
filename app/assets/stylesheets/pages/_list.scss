@@ -16,8 +16,10 @@
 }
 
 .card-list img {
-  height: 86%; // img nao diminuiu mais
-  width: 120px;
+  height: 200px;
+  width: 200px;
+  // height: 86%; // img nao diminuiu mais
+  // width: 20%;
   object-fit: cover;
 }
 
@@ -85,4 +87,10 @@
 
 .list-tags-title li {
   font-size: 14px;
+}
+
+.carousel-container{
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
 }

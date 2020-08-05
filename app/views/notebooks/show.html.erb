@@ -1,8 +1,11 @@
 <div class="fixing-margin">
   <div class="show-container">
     <div class="show-container-img">
-
-      <%= cl_image_tag @notebook.photo.key%>
+      <% if @notebook.pictures.count > 0 %>
+        <%= cl_image_tag(@notebook.pictures.first.key, :transformation => {:width=>300, :height=>300, :crop=>"fill"}) %>
+      <% else %>
+        <%= cl_image_tag(@notebook.photo.key, :transformation => {:width=>300, :height=>300, :crop=>"fill"}) %>
+      <% end %>
       <div class="show-container-icons">
         <% if @user %>
           <% if policy(@user).update? %>
