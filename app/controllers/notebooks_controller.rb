@@ -31,7 +31,7 @@ class NotebooksController < ApplicationController
   def create
     @notebook = Notebook.new(notebooks_params)
     authorize current_user
-    
+
     if @notebook.save
       redirect_to notebook_path(@notebook)
     else
