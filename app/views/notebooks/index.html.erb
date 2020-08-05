@@ -318,10 +318,12 @@
               <%= link_to notebook_path(notebook), data: { turbolinks: false }, style:'border:3px solid green;' do %>
                 <div class="notebook-card">
 
-                  <% if !notebook.photo.attached? %>
-                    <%= image_tag 'noimage.png' %>
-                  <% else %>
+                  <% if notebook.pictures.attached? %>
+                    <%= cl_image_tag notebook.pictures.first.key %>
+                  <% elsif notebook.photo.attached? %>
                     <%= cl_image_tag notebook.photo.key%>
+                  <% else %>
+                    <%= image_tag 'noimage.png' %>
                   <% end %>
                   
                 
@@ -338,10 +340,12 @@
               <%= link_to notebook_path(notebook), data: { turbolinks: false } do %>
                 <div class="notebook-card">
 
-                  <% if notebook.photo.key.nil? %>
-                    <%= image_tag 'noimage.png' %>
-                  <% else %>
+                  <% if notebook.pictures.attached? %>
+                    <%= cl_image_tag notebook.pictures.first.key %>
+                  <% elsif notebook.photo.attached? %>
                     <%= cl_image_tag notebook.photo.key%>
+                  <% else %>
+                    <%= image_tag 'noimage.png' %>
                   <% end %>
 
                   <div class="notebook-info-centralize">
@@ -359,10 +363,12 @@
             <%= link_to notebook_path(notebook), data: { turbolinks: false } do %>
               <div class="notebook-card">
 
-                  <% if notebook.photo.key.nil? %>
-                    <%= image_tag 'noimage.png' %>
-                  <% else %>
+                  <% if notebook.pictures.attached? %>
+                    <%= cl_image_tag notebook.pictures.first.key %>
+                  <% elsif notebook.photo.attached? %>
                     <%= cl_image_tag notebook.photo.key%>
+                  <% else %>
+                    <%= image_tag 'noimage.png' %>
                   <% end %>
 
                 <div class="notebook-info-centralize">

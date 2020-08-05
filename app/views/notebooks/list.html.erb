@@ -18,7 +18,7 @@
 
             <div class="card-list-content">
 
-              <% if notebook.pictures.count > 0 %>
+              <% if notebook.pictures.attached? %>
                
                <div class="carousel-container">
                 <div id="carouselExampleControls<%=index.to_s %>" class="carousel slide" data-ride="carousel">
@@ -46,11 +46,11 @@
                   <div class="carousel-inner">
                     <div class="carousel-item active">
                     
-                    <% if !notebook.photo.attached?%>
+                    <% if notebook.photo.attached?%>
                       <%# <img class="d-block" src= alt="1"> %>
-                      <%= image_tag 'noimage.png' %>
+                      <img class="d-block" src="<%= cl_path(notebook.photo.key) %>" alt="1">
                     <% else %>
-                      <img class="d-block" src="<%= cl_path(notebook.photo.key) unless notebook.photo.key.nil? %>" alt="1">
+                      <%= image_tag 'noimage.png' %>
                       
                     <% end %>
                     
