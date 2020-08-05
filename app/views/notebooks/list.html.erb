@@ -21,7 +21,7 @@
               <% if notebook.pictures.attached? %>
                
                <div class="carousel-container">
-                <div id="carouselExampleControls<%=index.to_s %>" class="carousel slide" data-ride="carousel">
+                <div id="carouselExampleControls<%=index.to_s %>" class="carousel slide" >
                   <div class="carousel-inner">
                     <% notebook.pictures.each_with_index do |picture, index| %>
                       <div class="carousel-item <%= 'active' if picture == notebook.pictures[0] %>">
@@ -42,7 +42,7 @@
 
               <% else %>
                 
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div id="carouselExampleControls" class="carousel slide" >
                   <div class="carousel-inner">
                     <div class="carousel-item active">
                     
