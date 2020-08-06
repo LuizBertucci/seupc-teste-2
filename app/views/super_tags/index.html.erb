@@ -1,0 +1,21 @@
+<% super_tags.each do |super_tag| %>
+  <div class="d-flex justify-content-between p-2">
+    <div>
+      <p><%= super_tag.name %></p>
+      <p style="font-size: 12px;">Index minimo: <%= super_tag.taggings.count %></p>
+    </div>
+
+    <div>
+      <%= link_to edit_tag_path(super_tag) do %>
+        <i class="btn btn-lg fas fa-edit"></i>
+      <% end %>
+
+      <% if policy(current_user).destroy? %>
+        <%= link_to tag_path(super_tag), method:'DELETE', data: { confirm: "Are you sure?" } do %>
+          <i class="btn btn-lg fas fa-trash"></i>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+<% end %>
