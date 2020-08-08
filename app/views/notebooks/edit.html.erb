@@ -1,15 +1,17 @@
 <div class="form-background-edit col-12" >
   <div class="form-info-edit" >
     <h2>Editing notebook</h2>
+
     <%= simple_form_for @notebook do |f| %>
 
       <%= f.input :position %>
       <%= f.input :name %>
+
       <div class="form-row">
+        
         <div class="form-group col-md-2">
           <%= f.input :asin, hint:'asin da amazon que garante que não tenha notebook repetido' %>
         </div>
-
         <div class="form-group col-md-1">
           <%= f.input :brand %>
         </div>
@@ -37,7 +39,6 @@
         <div class="form-group col-md-2">
           <%= f.input :ssd %>
         </div>
-
         <div class="form-group col-md-2">
           <%= f.input :screen_quality, hint: 'Full HD?' %>
         </div>
@@ -47,13 +48,11 @@
         <div class="form-group col-md-2">
           <%= f.input :screen_width, hint: 'Ultrafino?' %>
         </div>
-
         <div class="form-group col-md-4">
           <%= f.input :placa_video, hint: 'Integrado / ...' %>
         </div>
 
         <!-- Lojas -->
-
         <a href="<%= @notebook.link_amazon %>" class='form-group col-md-2' target='_blank' id='amazon' >
           <p class='btn btn-primary'> abra o link da amazon </p>
         </a>
@@ -63,21 +62,18 @@
         <div class="form-group col-md-8">
           <%= f.input :link_amazon, hint:'Amazon' %>
         </div>
-
         <div class="form-group col-md-2">
           <%= f.input :magalu_price, hint:"colocar o valor no formato R$ 1.000,00" %>
         </div>
         <div class="form-group col-md-10">
           <%= f.input :link_magalu, hint:'Magalu' %>
         </div>
-
         <div class="form-group col-md-2">
           <%= f.input :americanas_price, hint:'colocar o valor no formato R$ 1.000,00' %>
         </div>
         <div class="form-group col-md-10">
           <%= f.input :link_americanas, hint:'Americanas' %>
         </div>
-
         <div class="form-group col-md-2">
           <%= f.input :submarino_price, hint:'colocar o valor no formato R$ 1.000,00' %>
         </div>
@@ -90,6 +86,9 @@
 
       <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
       <%= f.submit class: 'btn btn-primary' %>
+
     <% end %>
+
   </div>
+  
 </div>

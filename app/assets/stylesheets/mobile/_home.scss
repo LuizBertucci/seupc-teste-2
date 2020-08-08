@@ -1,47 +1,3 @@
-// Cards que engloba card
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px 16px;
-}
-
-// Card da categoria
-.card-category {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  width: 240px;
-  margin-right: 16px;
-  margin-bottom: 16px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.card-category img {
-  margin-top: 10px;
-  width: 50px;
-  border-radius: 50%;
-}
-
-.card-category h3 {
-  font-size: 18px;
-}
-
-.card-category p {
-  display: flex;
-  flex-direction: row;
-  padding: 1px 12px; // espaçamento dentro botão
-  margin-right: 6px; // espaçamento entre TAGS
-  margin-bottom: 8px;
-  border-radius: 3px;
-  border: 2px solid blue;
-  color: black;
-  font-size: 12px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
 // ---------------------------------------
 // Card do produto
 .card-product {
@@ -74,10 +30,10 @@
   margin: 0;
 }
 
-.row p {
-  // position:relative;
-  // left:25px;
-}
+// .row p {
+//   position:relative;
+//   left:25px;
+// }
 
 .tags p {
   position:relative;
@@ -148,4 +104,93 @@
 
 .card {
   padding:4px;
+}
+
+#form-control-position{
+  margin-top: 6px;
+}
+
+#mobile-form-input{
+  padding-right: 36px;
+}
+
+
+.mobile-tags{
+  padding: 1px 12px;
+  margin-top: 7px;
+  margin-right: 6px;
+  margin-left: 10px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid blue;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.mobile-index-tag {
+  padding: 1px 10px;
+  margin: 4px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: 1px solid blue;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.tag-row{
+  display: flex;
+  flex-wrap: wrap;
+  // margin-right: -15px;
+  // margin-left: -15px;
+}
+
+.mobile-category-container{
+  margin-top: 12px;
+}
+
+// Cards que engloba card
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px 16px;
+}
+
+// Card da categoria
+.mobile-category-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 12px;
+}
+
+
+.mobile-category-card img {
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.mobile-category-card h3 {
+  font-size: 16px;
+}
+
+.mobile-category-card p {
+  display: flex;
+  flex-direction: row;
+  padding: 1px 12px; // espaçamento dentro botão
+  margin: 0 3px 8px 3px;
+  border-radius: 3px;
+  border: 2px solid blue;
+  color: black;
+  font-size: 12px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.card-row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

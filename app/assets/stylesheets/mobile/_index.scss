@@ -1,0 +1,17 @@
+// Import page-specific CSS files here.
+@import "home";
+@import "navbar";
+// @import "show";
+// @import "list";
+
+
+// style for index page specific.
+
+.index-page-centralize{
+  display:flex;
+  justify-content:center;
+  padding:0 40px 0 40px;
+}
+
+
+

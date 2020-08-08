@@ -3,7 +3,8 @@ class NotebooksController < ApplicationController
   before_action :find_notebook, only: [:show, :edit, :update]
 
   def index
-  @notebooks = policy_scope(Notebook)
+    
+    @notebooks = policy_scope(Notebook)
     if params[:search]
       if params[:search][:query]
         @notebookresult = Notebook.find_by(name: params[:search][:query])
@@ -59,6 +60,7 @@ class NotebooksController < ApplicationController
   end
 
   def list
+    # action to render the view where the adm will manage old/new notebooks, tags, notebooks positions.
     authorize current_user
     @tags = Tag.all.order(created_at: :asc)
     @notebooks = Notebook.all.order(position: :asc)

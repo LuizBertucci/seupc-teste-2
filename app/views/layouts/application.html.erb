@@ -16,11 +16,18 @@
 
   <body>
 
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <div class="container-fluid">
+    <%# conditional to render the correct navbar (desktop ou mobile) %>
+      <% if mobile? %>
+        <%= render 'shared/navbar.html+phone.erb' %>
+      <% else %>
+        <%= render 'shared/navbar' %>
+      <% end %>
+      
+      <%= render 'shared/flashes' %>
+      <%= yield %>
 
-    <%= yield %>
-
+    </div>
 
   </body>
 </html>
