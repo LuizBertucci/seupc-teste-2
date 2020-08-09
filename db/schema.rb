@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_30_213815) do
+ActiveRecord::Schema.define(version: 2020_08_05_022615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,21 @@ ActiveRecord::Schema.define(version: 2020_07_30_213815) do
     t.index ["user_id"], name: "index_saved_notebooks_on_user_id"
   end
 
+  create_table "super_taggings", force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.bigint "super_tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["super_tag_id"], name: "index_super_taggings_on_super_tag_id"
+    t.index ["tag_id"], name: "index_super_taggings_on_tag_id"
+  end
+
+  create_table "super_tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "taggings", force: :cascade do |t|
     t.bigint "tag_id", null: false
     t.bigint "notebook_id", null: false
@@ -119,6 +134,8 @@ ActiveRecord::Schema.define(version: 2020_07_30_213815) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "saved_notebooks", "notebooks"
   add_foreign_key "saved_notebooks", "users"
+  add_foreign_key "super_taggings", "super_tags"
+  add_foreign_key "super_taggings", "tags"
   add_foreign_key "taggings", "notebooks"
   add_foreign_key "taggings", "tags"
 end

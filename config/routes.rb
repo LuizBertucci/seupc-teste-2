@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   resources :tags
 
+  resources :super_tags
+
 end

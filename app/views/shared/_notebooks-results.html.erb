@@ -1,0 +1,85 @@
+<%@notebooks.each do |notebook|  %>
+
+  <!-- Lógica para só o admin ver o notebook verde depois de editado -->
+  <% if current_user && current_user.admin == true %>
+    <% if !notebook.name.nil?  %>
+
+      <%= link_to notebook_path(notebook), data: { turbolinks: false }, style:'border:3px solid green;' do %>
+
+        <div class="notebook-card">
+          <%# Lógica para verificar se há uma foto, mais de uma foto, ou nenhuma foto attached %>
+          <% if notebook.pictures.attached? %>
+            <%= cl_image_tag notebook.pictures.first.key %>
+          <% elsif notebook.photo.attached? %>
+            <%= cl_image_tag notebook.photo.key%>
+          <% else %>
+            <%= image_tag 'noimage.png' %>
+          <% end %>        
+        
+          <div class="notebook-info-centralize">
+            <div class="notebook-info">
+              <p class="name"><%= notebook.name.split('').first(60).join('') %>...</p>
+              <p class="price"><%= notebook.amazon_price %></p>
+            </div>
+          </div>
+
+        </div>
+
+      <% end %>
+
+    <% else %>
+
+      <%= link_to notebook_path(notebook), data: { turbolinks: false } do %>
+
+        <div class="notebook-card">
+          <%# Lógica para verificar se há uma foto, mais de uma foto, ou nenhuma foto attached %>
+          <% if notebook.pictures.attached? %>
+            <%= cl_image_tag notebook.pictures.first.key %>
+          <% elsif notebook.photo.attached? %>
+            <%= cl_image_tag notebook.photo.key%>
+          <% else %>
+            <%= image_tag 'noimage.png' %>
+          <% end %>
+
+          <div class="notebook-info-centralize">
+            <div class="notebook-info">
+              <p class="name"><%= notebook.general_info.split('').first(55).join('') %>...</p>
+              <p class="price"><%= notebook.amazon_price %></p>
+            </div>
+          </div>
+
+        </div
+        >
+      <% end %>
+
+    <% end %>
+
+  <% else %>
+    
+    <!-- O que a pessoa ve se nao for admin -->
+    <%= link_to notebook_path(notebook), data: { turbolinks: false } do %>
+    
+      <div class="notebook-card">
+          <%# Lógica para verificar se há uma foto, mais de uma foto, ou nenhuma foto attached %>
+          <% if notebook.pictures.attached? %>
+            <%= cl_image_tag notebook.pictures.first.key %>
+          <% elsif notebook.photo.attached? %>
+            <%= cl_image_tag notebook.photo.key%>
+          <% else %>
+            <%= image_tag 'noimage.png' %>
+          <% end %>
+
+          <div class="notebook-info-centralize">
+            <div class="notebook-info">
+              <p class="name"><%= notebook.general_info.split('').first(55).join('') %>...</p>
+              <p class="price"><%= notebook.amazon_price %></p>
+            </div>
+          </div>
+
+      </div>
+
+    <% end %>
+
+  <% end %>
+
+<% end %>
