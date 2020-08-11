@@ -8,6 +8,10 @@ class NotebookPolicy < ApplicationPolicy
       true
     end
 
+    def home?
+      true
+    end
+
     def update?
       current_user.admin
     end

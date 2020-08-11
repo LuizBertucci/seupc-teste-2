@@ -30,6 +30,9 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+
+gem 'pg_search'
+
 gem 'acts_as_list'
 
 gem 'httparty', '~> 0.13.7'

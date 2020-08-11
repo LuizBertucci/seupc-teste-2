@@ -1,0 +1,83 @@
+<div class="show-container-img">
+
+  <% if @notebook.pictures.attached? %>
+    <%= cl_image_tag(@notebook.pictures.first.key, :transformation => {:width=>300, :height=>300, :crop=>"fill"}) %>
+  <% elsif @notebook.photo.attached? %>
+    <%= cl_image_tag(@notebook.photo.key, :transformation => {:width=>300, :height=>300, :crop=>"fill"}) %>
+  <% else %>
+    <%= image_tag 'noimage.png' %>
+  <% end %>
+
+  <div class="show-container-icons">
+    <% if @user %>
+      <% if policy(@user).update? %>
+        <%= link_to edit_notebook_path(@notebook) do%>
+          <i class="btn fas fa-edit"></i>
+        <% end %>
+      <% end %>
+
+      <% if policy(@user).destroy? %>
+        <%= link_to notebook_path(@notebook), method:'DELETE', data: { confirm: "Are you sure?" } do %>
+          <i class="btn fas fa-trash"></i>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
+
+  <h2 style="text-align:center"> <%= @notebook.name %> </h2>
+
+<div class="show-container-info">
+
+  <div class="show-price">
+
+
+    <% unless @notebook.amazon_price.nil? %>
+      <a href="<%= @notebook.link_amazon %>" target='_blank' id='amazon'>
+        <%= image_tag "amazon.png" %>
+        <p> <%= @notebook.amazon_price %> </p>
+        <p class="btn btn-primary">Ir a loja</p>
+      </a>
+    <% end %>
+
+
+      <a href="<%= @notebook.link_magalu %>" target='_blank' id='magalu'>
+        <%= image_tag "magalu.png" %>
+        <p> <%= @notebook.magalu_price %> </p>
+        <p class="btn btn-primary">Ir a loja</p>
+      </a>
+
+    <a href="<%= @notebook.link_americanas %>" target='_blank' id='americanas'>
+      <%= image_tag "americanas.png" %>
+      <p> <%= @notebook.americanas_price %> </p>
+      <p class="btn btn-primary">Ir a loja</p>
+    </a>
+
+
+    <a href="<%= @notebook.link_submarino %>" target='_blank' id='submarino'>
+      <%= image_tag "submarino.png" %>
+      <p> <%= @notebook.submarino_price %> </p>
+      <p class="btn btn-primary">Ir a loja</p>
+    </a>
+
+
+  </div>
+
+  <div class="card-header" id="headingOne" >
+    Detalhes Técnicos
+  </div>
+  <div class="card">
+    <p> Marca: <%= @notebook.brand %> </p>
+    <p> Cor: <%= @notebook.color %> </p>
+    <p> Modelo: <%= @notebook.modelo %> </p>
+    <p> Processador: <%= @notebook.processor %> </p>
+    <p> Peso: <%= (@notebook.weight).to_f.round(2) %> kg </p>
+    <p> RAM: <%= @notebook.ram %> </p>
+    <p> HD: <%= @notebook.hd %> </p>
+    <p> Tela: <%= @notebook.screen_quality %> <%= @notebook.screen_size %>" </p>
+    <p> SSD: <%= @notebook.ssd %> </p>
+    <p> Placa de vídeo: <%= @notebook.placa_video %> </p>
+
+  </div>
+</div>

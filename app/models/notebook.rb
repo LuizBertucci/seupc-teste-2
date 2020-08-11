@@ -1,5 +1,5 @@
 class Notebook < ApplicationRecord
-  # include PgSearch::Model
+  include PgSearch::Model
   
   has_one_attached :photo
   has_many_attached :pictures
@@ -30,12 +30,12 @@ class Notebook < ApplicationRecord
   end
 
 
-  # pg_search_scope :search_query,
-  #   against: [ :amazon_price, :magalu_price, :americanas_price, :submarino_price, 
-  #              :brand, :modelo, :processor, :color, :screen_size, :ram,
-  #              :hd, :ssd, :placa_video],
-  #   using: {
-  #     tsearch: { prefix: false, any_word: false} # <-- now `superman batm` will return something!
-  #   }
+  pg_search_scope :search_query,
+    against: [ :amazon_price, :magalu_price, :americanas_price, :submarino_price, 
+               :brand, :modelo, :processor, :color, :screen_size, :ram,
+               :hd, :ssd, :placa_video, :name],
+    using: {
+      tsearch: { prefix: false, any_word: false} # <-- now `superman batm` will return something!
+    }
 
 end
