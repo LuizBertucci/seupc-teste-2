@@ -1,0 +1,78 @@
+<%@notebooks.each do |notebook|  %>
+
+  <!-- Lógica para só o admin ver o notebook verde depois de editado -->
+  <% if current_user && current_user.admin == true %>
+    <% if !notebook.name.nil?  %>
+
+      <%= link_to notebook_path(notebook), data: { turbolinks: false }, class:'col-6' do %>
+
+        <div class="mobile-category-card">
+          <%# Lógica para verificar se há uma foto, mais de uma foto, ou nenhuma foto attached %>
+          <% if notebook.pictures.attached? %>
+            <%= cl_image_tag(notebook.pictures.first.key, class: "mobile-note-img", :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>      
+          <% elsif notebook.photo.attached? %>
+            <%= cl_image_tag(notebook.photo.key, class: "mobile-note-img", :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>      
+          <% else %>
+            <%= image_tag('noimage.png', class: "mobile-note-img") %>
+          <% end %>        
+        
+            <div class="card-row">
+              <h3><%= notebook.name.split('').first(60).join('') %></h3>
+              <p><%= notebook.amazon_price %></p>
+            </div>
+          
+        </div>
+
+      <% end %>
+    
+    <% else %>
+
+      <%= link_to notebook_path(notebook), data: { turbolinks: false }, class:'col-6' do %>
+
+        <div class="mobile-category-card">
+          <%# Lógica para verificar se há uma foto, mais de uma foto, ou nenhuma foto attached %>
+          <% if notebook.pictures.attached? %>
+            <%= cl_image_tag(notebook.pictures.first.key, :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>      
+          <% elsif notebook.photo.attached? %>
+            <%= cl_image_tag(notebook.photo.key, :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>
+          <% else %>
+            <%= image_tag 'noimage.png' %>
+          <% end %>        
+
+            <div class="card-row">
+              <h3><%= notebook.general_info.split('').first(55).join('') %>...</h3>
+              <p><%= notebook.amazon_price %></p>
+            </div>
+          
+        </div>
+      <% end %>
+
+    <% end %>
+
+  <% else %>
+    
+    <!-- O que a pessoa ve se nao for admin -->
+    <%= link_to notebook_path(notebook), data: { turbolinks: false }, class:'col-6' do %>
+    
+        <div class="mobile-category-card">
+          <%# Lógica para verificar se há uma foto, mais de uma foto, ou nenhuma foto attached %>
+          <% if notebook.pictures.attached? %>
+            <%= cl_image_tag(notebook.pictures.first.key, :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>      
+          <% elsif notebook.photo.attached? %>
+            <%= cl_image_tag(notebook.photo.key, :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>      
+          <% else %>
+            <%= image_tag 'noimage.png' %>
+          <% end %>        
+
+            <div class="card-row">
+              <h3><%= notebook.general_info.split('').first(55).join('') %>...</h3>
+              <p><%= notebook.amazon_price %></p>
+            </div>
+
+         </div>
+
+    <% end %>
+
+  <% end %>
+
+<% end %>

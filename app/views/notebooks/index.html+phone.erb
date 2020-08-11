@@ -8,7 +8,7 @@
 </form>
 
 <%# Tags Selecionadas: necessita incluir a logica de só aparecer caso o usuario insira alguma tag %>
-<%# <div class="mobile-selected-tags">
+<div class="mobile-selected-tags">
   <div class="title">
     <strong>TAGS Selecionadas:</strong>
   </div>
@@ -30,7 +30,67 @@
       <p>R$2.500</p>
     </div>
   </div>
-</div> %>
+</div>
+
+<div class="mobile-selected-tags">
+  <div class="title">
+    <strong>Preços:</strong>
+  </div>
+
+  <div class="tag-row">
+    <div class="mobile-index-tag">
+      <p>+ Insira um Valor</p>
+    </div>
+    <div class="mobile-index-tag">
+      <p>Até R$ 2.000,00</p>
+    </div>
+    <div class="mobile-index-tag">
+      <p>Até R$ 2.500,00</p>
+    </div>
+    <div class="mobile-index-tag">
+      <p>Até R$ 3.000,00</p>
+    </div>
+    <div class="mobile-index-tag">
+      <p>Até R$ 3.500,00</p>
+    </div>
+    <div class="mobile-index-tag">
+      <p>Até R$ 4.000,00</p>
+    </div>
+    <div class="mobile-index-tag">
+      <p>Até R$5.000,00</p>
+    </div>
+  </div>
+</div>
+
+<div class="mobile-selected-tags">
+  <div class="title">
+    <strong>Cursos:</strong>
+  </div>
+
+  <div class="tag-row">
+    <div class="mobile-index-tag">
+      <p>Buscar curso</p>
+    </div>
+    <div class="mobile-index-tag">
+      <p>Administração</p>
+    </div>
+    <div class="mobile-index-tag">
+      <p>Arquitetura</p>
+    </div>
+    <div class="mobile-index-tag">
+      <p>Ciência da computação</p>
+    </div>
+    <div class="mobile-index-tag">
+      <p>Engenharia Civil</p>
+    </div>
+    <div class="mobile-index-tag">
+      <p>Engenharia de Automação</p>
+    </div>
+    <div class="mobile-index-tag">
+      <p>Engenharia Elétrica</p>
+    </div>
+  </div>
+</div>
 
 
 <div class="mobile-category-container">
@@ -39,7 +99,7 @@
 
     <div class="col-6">
       <div class="mobile-category-card">
-        <img src="https://www.w3schools.com/images/w3schools_green.jpg" width="50" height="50">
+        <img src="https://www.w3schools.com/images/w3schools_green.jpg"  class="mobile-category-card-img" width="50" height="50">
         <h3>Dia a dia</h3>
         <div class="card-row">
           <p>LEVE</p>
@@ -52,7 +112,7 @@
 
     <div class="col-6">
       <div class="mobile-category-card">
-        <img src="https://www.w3schools.com/images/w3schools_green.jpg" width="50" height="50">
+        <img src="https://www.w3schools.com/images/w3schools_green.jpg" class="mobile-category-card-img" width="50" height="50">
         <h3>Pro trabalho</h3>
         <div class="card-row">
           <p>i5</p>
@@ -65,7 +125,7 @@
 
     <div class="col-6">
       <div class="mobile-category-card">
-        <img src="https://www.w3schools.com/images/w3schools_green.jpg" width="50" height="50">
+        <img src="https://www.w3schools.com/images/w3schools_green.jpg"  class="mobile-category-card-img" width="50" height="50">
         <h3>Filme em casa</h3>
         <div class="card-row">
           <p>FULL HD</p>
@@ -80,7 +140,7 @@
 
     <div class="col-6">
       <div class="mobile-category-card">
-        <img src="https://www.w3schools.com/images/w3schools_green.jpg" width="50" height="50">
+        <img src="https://www.w3schools.com/images/w3schools_green.jpg"  class="mobile-category-card-img" width="50" height="50">
         <h3>Faculdade</h3>
         <div class="card-row">
           <p>i5</p>
@@ -94,44 +154,12 @@
   </div>
 </div>
 
+<div class="mobile-category-container">
 
-  <%# <div class="cards">
+  <div class="row">
 
-    <div class="card-category">
-    </div>
+  <%= render 'shared/notebooks-results.html+phone.erb' %>
 
-    <div class="card-category">
-      <img src="https://www.w3schools.com/images/w3schools_green.jpg" width="50" height="50">
-      <h3>Filme em casa</h3>
-      <div class="row">
-        <p>FULL HD</p>
-        <p>LEVE</p>
-        <p>NETFLIX</p>
-        <p>POPCORN TIME</p>
-        <p>R$2.500</p>
-      </div>
-    </div>
+  </div>
 
-    <div class="card-category">
-      <img src="https://www.w3schools.com/images/w3schools_green.jpg" width="50" height="50">
-      <h3>Pro trabalho</h3>
-      <div class="row">
-        <p>i5</p>
-        <p>FULL HD</p>
-        <p>OFFICE</p>
-        <p>R$2.500</p>
-      </div>
-    </div>
-
-    <div class="card-category">
-      <img src="https://www.w3schools.com/images/w3schools_green.jpg" width="50" height="50">
-      <h3>Faculdade</h3>
-      <div class="row">
-        <p>i5</p>
-        <p>LEVE</p>
-        <p>FULL HD</p>
-        <p>PACOTE OFFICE</p>
-        <p>R$2.500</p>
-      </div>
-    </div> %>
-  <%# </div> %>
+</div>
