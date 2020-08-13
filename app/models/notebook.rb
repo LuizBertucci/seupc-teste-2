@@ -12,12 +12,6 @@ class Notebook < ApplicationRecord
   has_many :taggings
   has_many :tags, through: :taggings
 
-  private
-
-  def init
-    self.edited ||= false
-  end
-
   def price_count
     array = [self.amazon_price, self.submarino_price, self.magalu_price, self.americanas_price ]
     counter = 0
@@ -28,6 +22,13 @@ class Notebook < ApplicationRecord
 
     counter
   end
+  
+  private
+
+  def init
+    self.edited ||= false
+  end
+
 
 
   pg_search_scope :search_query,
