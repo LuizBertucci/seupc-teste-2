@@ -4,6 +4,10 @@ class UserPolicy < ApplicationPolicy
       scope.all
     end
   end
+  
+  def home?
+    true
+  end
 
   def show?
     if record.seller || record == user

@@ -1,11 +1,19 @@
-<form novalidate="novalidate" class="simple_form search" id="form-control-position" >
+<%# <form novalidate="novalidate" class="simple_form search" id="form-control-position" >
   <div class="search-form-control form-group">
     <input class="form-control" placeholder="Buscar por tags (ex: photoshop)" id="mobile-form-input" >
     <button name="button" type="submit" class="btn btn-flat">
       <i class="fas fa-search"></i>
     </button>
   </div>
-</form>
+</form> %>
+
+<%= form_tag notebooks_path, method: :get, style:"display:flex; margin-top:16px;" do %>
+  <%= text_field_tag :query, params[:query], style:"position:relative;width:100%;padding-right:36px;", placeholder: "Buscar por tags (ex: photoshop)" do %>
+  <% end %>
+    <%= button_tag(type: "submit", class: "btn btn-default") do %>
+      <i class="fas fa-search"></i>
+    <% end %>
+<% end %>
 
 <%# Tags Selecionadas: necessita incluir a logica de só aparecer caso o usuario insira alguma tag %>
 <div class="mobile-selected-tags">
@@ -13,24 +21,33 @@
     <strong>TAGS Selecionadas:</strong>
   </div>
 
+
   <div class="tag-row">
-    <div class="mobile-index-tag">
-      <p>ADMINISTRAÇÃO</p>
-    </div>
-    <div class="mobile-index-tag">
-      <p>i5</p>
-    </div>
-    <div class="mobile-index-tag">
-      <p>PACOTE OFFICE</p>
-    </div>
-    <div class="mobile-index-tag">
-      <p>LEVE</p>
-    </div>
-    <div class="mobile-index-tag">
-      <p>R$2.500</p>
-    </div>
+  
+    <% if @query %>
+      <% @query.each do |item| %>
+        <div class="mobile-index-tag">
+          <p><%= item.capitalize %></p>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="mobile-index-tag">
+        <p>ADMINISTRAÇÃO</p>
+      </div>
+      <div class="mobile-index-tag">
+        <p>i5</p>
+      </div>
+      <div class="mobile-index-tag">
+        <p>PACOTE OFFICE</p>
+      </div>
+      <div class="mobile-index-tag">
+        <p>LEVE</p>
+      </div>
+      <div class="mobile-index-tag">
+        <p>R$2.500</p>
+      </div>
+    <% end %>
   </div>
-</div>
 
 <div class="mobile-selected-tags">
   <div class="title">
@@ -89,68 +106,6 @@
     <div class="mobile-index-tag">
       <p>Engenharia Elétrica</p>
     </div>
-  </div>
-</div>
-
-
-<div class="mobile-category-container">
-
-  <div class="row">
-
-    <div class="col-6">
-      <div class="mobile-category-card">
-        <img src="https://www.w3schools.com/images/w3schools_green.jpg"  class="mobile-category-card-img" width="50" height="50">
-        <h3>Dia a dia</h3>
-        <div class="card-row">
-          <p>LEVE</p>
-          <p>NETFLIX</p>
-          <p>PACOTE OFFICE</p>
-          <p>R$2.500</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-6">
-      <div class="mobile-category-card">
-        <img src="https://www.w3schools.com/images/w3schools_green.jpg" class="mobile-category-card-img" width="50" height="50">
-        <h3>Pro trabalho</h3>
-        <div class="card-row">
-          <p>i5</p>
-          <p>FULL HD</p>
-          <p>OFFICE</p>
-          <p>R$2.500</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-6">
-      <div class="mobile-category-card">
-        <img src="https://www.w3schools.com/images/w3schools_green.jpg"  class="mobile-category-card-img" width="50" height="50">
-        <h3>Filme em casa</h3>
-        <div class="card-row">
-          <p>FULL HD</p>
-          <p>LEVE</p>
-          <p>NETFLIX</p>
-          <p>POPCORN TIME</p>
-          <p>R$2.500</p>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="col-6">
-      <div class="mobile-category-card">
-        <img src="https://www.w3schools.com/images/w3schools_green.jpg"  class="mobile-category-card-img" width="50" height="50">
-        <h3>Faculdade</h3>
-        <div class="card-row">
-          <p>i5</p>
-          <p>LEVE</p>
-          <p>FULL HD</p>
-          <p>PACOTE OFFICE</p>
-          <p>R$2.500</p>
-        </div>
-      </div>
-    </div>      
   </div>
 </div>
 
