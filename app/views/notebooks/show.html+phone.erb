@@ -1,5 +1,7 @@
-<div class="show-container-img">
+<!-- Pagina do produto -->
 
+<!-- Mostrar a imagem -->
+<div class="show-container-img">
   <% if @notebook.pictures.attached? %>
     <%= cl_image_tag(@notebook.pictures.first.key, :transformation => {:width=>300, :height=>300, :crop=>"fill"}) %>
   <% elsif @notebook.photo.attached? %>
@@ -8,6 +10,7 @@
     <%= image_tag 'noimage.png' %>
   <% end %>
 
+  <!-- Se for admin ve opcao pra editar ou apagar o notebook -->
   <div class="show-container-icons">
     <% if @user %>
       <% if policy(@user).update? %>
@@ -23,16 +26,12 @@
       <% end %>
     <% end %>
   </div>
-
 </div>
 
-  <h2 style="text-align:center"> <%= @notebook.name %> </h2>
-
+<!-- Infos do notebooks em si -->
+<h2 style="text-align:center"> <%= @notebook.name %> </h2>
 <div class="show-container-info">
-
   <div class="show-price">
-
-
     <% unless @notebook.amazon_price.nil? %>
       <a href="<%= @notebook.link_amazon %>" target='_blank' id='amazon'>
         <%= image_tag "amazon.png" %>
@@ -48,19 +47,17 @@
         <p class="btn btn-primary">Ir a loja</p>
       </a>
 
-    <a href="<%= @notebook.link_americanas %>" target='_blank' id='americanas'>
-      <%= image_tag "americanas.png" %>
-      <p> <%= @notebook.americanas_price %> </p>
-      <p class="btn btn-primary">Ir a loja</p>
-    </a>
+      <a href="<%= @notebook.link_americanas %>" target='_blank' id='americanas'>
+        <%= image_tag "americanas.png" %>
+        <p> <%= @notebook.americanas_price %> </p>
+        <p class="btn btn-primary">Ir a loja</p>
+      </a>
 
-
-    <a href="<%= @notebook.link_submarino %>" target='_blank' id='submarino'>
-      <%= image_tag "submarino.png" %>
-      <p> <%= @notebook.submarino_price %> </p>
-      <p class="btn btn-primary">Ir a loja</p>
-    </a>
-
+      <a href="<%= @notebook.link_submarino %>" target='_blank' id='submarino'>
+        <%= image_tag "submarino.png" %>
+        <p> <%= @notebook.submarino_price %> </p>
+        <p class="btn btn-primary">Ir a loja</p>
+      </a>
 
   </div>
 
@@ -78,6 +75,5 @@
     <p> Tela: <%= @notebook.screen_quality %> <%= @notebook.screen_size %>" </p>
     <p> SSD: <%= @notebook.ssd %> </p>
     <p> Placa de vídeo: <%= @notebook.placa_video %> </p>
-
   </div>
 </div>

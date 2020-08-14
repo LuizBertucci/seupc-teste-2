@@ -1,3 +1,5 @@
+<!-- Pagina com resultado de buscas -->
+
 <!-- Barra de busca -->
 <%= form_tag notebooks_path, method: :get, style:"display:flex; margin-top:16px;" do %>
   <%= text_field_tag :query, params[:query], style:"position:relative;width:100%;padding-right:36px;", placeholder: "Buscar por tags (ex: photoshop)" do %>
@@ -7,23 +9,27 @@
     <% end %>
 <% end %>
 
-
 <!-- Aqui ficam as TAGS selecionadas -->
+<div class="tag-row">
+
+  <% if @query %>
+    <% @query.each do |item| %>
+      <div class="mobile-index-tag">
+        <p><%= item.capitalize %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
 
-
-
-
+<!-- Aqui ficam os notebooks -->
 <%@notebooks.each do |notebook|  %>
 
   <!-- Lógica para só o admin ver o notebook verde depois de editado -->
   <% if current_user && current_user.admin == true %>
     <% if !notebook.name.nil?  %>
-
       <%= link_to notebook_path(notebook), data: { turbolinks: false }, class:'col-6' do %>
-
         <div class="mobile-category-card">
-          <%# Lógica para verificar se há uma foto, mais de uma foto, ou nenhuma foto attached %>
           <% if notebook.pictures.attached? %>
             <%= cl_image_tag(notebook.pictures.first.key, class: "mobile-note-img", :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>
           <% elsif notebook.photo.attached? %>
