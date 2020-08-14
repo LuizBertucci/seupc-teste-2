@@ -1,3 +1,19 @@
+<!-- Barra de busca -->
+<%= form_tag notebooks_path, method: :get, style:"display:flex; margin-top:16px;" do %>
+  <%= text_field_tag :query, params[:query], style:"position:relative;width:100%;padding-right:36px;", placeholder: "Buscar por tags (ex: photoshop)" do %>
+  <% end %>
+    <%= button_tag(type: "submit", class: "btn btn-default") do %>
+      <i class="fas fa-search"></i>
+    <% end %>
+<% end %>
+
+
+<!-- Aqui ficam as TAGS selecionadas -->
+
+
+
+
+
 <%@notebooks.each do |notebook|  %>
 
   <!-- Lógica para só o admin ver o notebook verde depois de editado -->
@@ -16,19 +32,15 @@
             <%= image_tag('noimage.png', class: "mobile-note-img") %>
           <% end %>
 
-            <div class="card-row">
-              <h3><%= notebook.name.split('').first(60).join('') %></h3>
-              <p><%= notebook.amazon_price %></p>
-            </div>
-
+          <div class="card-row">
+            <h3><%= notebook.name.split('').first(60).join('') %></h3>
+            <p><%= notebook.amazon_price %></p>
+          </div>
         </div>
-
       <% end %>
-
     <% else %>
 
       <%= link_to notebook_path(notebook), data: { turbolinks: false }, class:'col-6' do %>
-
         <div class="mobile-category-card">
           <%# Lógica para verificar se há uma foto, mais de uma foto, ou nenhuma foto attached %>
           <% if notebook.pictures.attached? %>
@@ -39,22 +51,17 @@
             <%= image_tag 'noimage.png' %>
           <% end %>
 
-            <div class="card-row">
-              <h3><%= notebook.general_info.split('').first(55).join('') %>...</h3>
-              <p><%= notebook.amazon_price %></p>
-            </div>
-
+          <div class="card-row">
+            <h3><%= notebook.general_info.split('').first(55).join('') %>...</h3>
+            <p><%= notebook.amazon_price %></p>
+          </div>
         </div>
       <% end %>
-
     <% end %>
-
   <% else %>
 
     <!-- O que a pessoa ve se nao for admin -->
     <%= link_to notebook_path(notebook), data: { turbolinks: false }, class:'col-6' do %>
-
-
       <div class="mobile-category-card">
         <!-- Temos pictures e photo acopladas. O photo fizemos no comeco mas
         depois queriamos poder colocar varias so que nao dava pra mudar isso sem ter que

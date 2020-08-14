@@ -15,9 +15,7 @@
     <% end %>
 <% end %>
 
-<%# Tags Selecionadas: necessita incluir a logica de só aparecer caso o usuario insira alguma tag %>
-<%# <div class="mobile-selected-tags"> %>
-  
+
 <div class="title">
   <strong>TAGS Selecionadas:</strong>
 </div>
@@ -30,7 +28,6 @@
         <p><%= item.capitalize %></p>
       </div>
     <% end %>
-
   <% else %>
 
     <div class="mobile-index-tag">
@@ -114,15 +111,10 @@
       <p>Engenharia Elétrica</p>
     </div>
   </div>
-  
 </div>
 
 <div class="mobile-category-container">
-
   <div class="row">
-
-  <%= render 'shared/notebooks-results.html+phone.erb' %>
-
+    <%= render 'shared/notebooks-results.html+phone.erb' %>
   </div>
-
 </div>
