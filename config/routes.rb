@@ -3,15 +3,13 @@ Rails.application.routes.draw do
 
   root to: 'notebooks#home'
 
-  resources :notebooks, only: [:index, :new, :show, :create, :edit, :update, :destroy] do 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :notebooks, only: [:index, :new, :show, :create, :edit, :update, :destroy] do
+    # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
     collection do
       get "list"
     end
   end
 
   resources :tags
-
   resources :super_tags
-
 end

@@ -9,22 +9,22 @@
         <div class="mobile-category-card">
           <%# Lógica para verificar se há uma foto, mais de uma foto, ou nenhuma foto attached %>
           <% if notebook.pictures.attached? %>
-            <%= cl_image_tag(notebook.pictures.first.key, class: "mobile-note-img", :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>      
+            <%= cl_image_tag(notebook.pictures.first.key, class: "mobile-note-img", :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>
           <% elsif notebook.photo.attached? %>
-            <%= cl_image_tag(notebook.photo.key, class: "mobile-note-img", :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>      
+            <%= cl_image_tag(notebook.photo.key, class: "mobile-note-img", :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>
           <% else %>
             <%= image_tag('noimage.png', class: "mobile-note-img") %>
-          <% end %>        
-        
+          <% end %>
+
             <div class="card-row">
               <h3><%= notebook.name.split('').first(60).join('') %></h3>
               <p><%= notebook.amazon_price %></p>
             </div>
-          
+
         </div>
 
       <% end %>
-    
+
     <% else %>
 
       <%= link_to notebook_path(notebook), data: { turbolinks: false }, class:'col-6' do %>
@@ -32,47 +32,47 @@
         <div class="mobile-category-card">
           <%# Lógica para verificar se há uma foto, mais de uma foto, ou nenhuma foto attached %>
           <% if notebook.pictures.attached? %>
-            <%= cl_image_tag(notebook.pictures.first.key, :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>      
+            <%= cl_image_tag(notebook.pictures.first.key, :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>
           <% elsif notebook.photo.attached? %>
             <%= cl_image_tag(notebook.photo.key, :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>
           <% else %>
             <%= image_tag 'noimage.png' %>
-          <% end %>        
+          <% end %>
 
             <div class="card-row">
               <h3><%= notebook.general_info.split('').first(55).join('') %>...</h3>
               <p><%= notebook.amazon_price %></p>
             </div>
-          
+
         </div>
       <% end %>
 
     <% end %>
 
   <% else %>
-    
+
     <!-- O que a pessoa ve se nao for admin -->
     <%= link_to notebook_path(notebook), data: { turbolinks: false }, class:'col-6' do %>
-    
-        <div class="mobile-category-card">
-          <%# Lógica para verificar se há uma foto, mais de uma foto, ou nenhuma foto attached %>
-          <% if notebook.pictures.attached? %>
-            <%= cl_image_tag(notebook.pictures.first.key, :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>      
-          <% elsif notebook.photo.attached? %>
-            <%= cl_image_tag(notebook.photo.key, :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>      
-          <% else %>
-            <%= image_tag 'noimage.png' %>
-          <% end %>        
 
-            <div class="card-row">
-              <h3><%= notebook.general_info.split('').first(55).join('') %>...</h3>
-              <p><%= notebook.amazon_price %></p>
-            </div>
 
-         </div>
+      <div class="mobile-category-card">
+        <!-- Temos pictures e photo acopladas. O photo fizemos no comeco mas
+        depois queriamos poder colocar varias so que nao dava pra mudar isso sem ter que
+        fazer tudo de novo ai colocamos o pictures que e o que usamos principalmente -->
 
+        <% if notebook.pictures.attached? %>
+          <%= cl_image_tag(notebook.pictures.first.key, :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>
+        <% elsif notebook.photo.attached? %>
+          <%= cl_image_tag(notebook.photo.key, :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>
+        <% else %>
+          <%= image_tag 'noimage.png' %>
+        <% end %>
+
+        <div class="card-row">
+          <h3><%= notebook.general_info.split('').first(55).join('') %>...</h3>
+          <p><%= notebook.amazon_price %></p>
+        </div>
+      </div>
     <% end %>
-
   <% end %>
-
 <% end %>

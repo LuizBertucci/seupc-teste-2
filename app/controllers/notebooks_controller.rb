@@ -2,14 +2,13 @@ class NotebooksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :index, :show]
   before_action :find_notebook, only: [:show, :edit, :update]
 
-
   def home
     authorize current_user
     if params[:query].present?
       @notebooks = Notebook.search_query(params[:query]).order(created_at: :desc)
     else
       @notebooks = Notebook.all.order(created_at: :desc)
-    end       
+    end
   end
 
   def index
@@ -18,21 +17,7 @@ class NotebooksController < ApplicationController
       @notebooks = Notebook.search_query(params[:query]).order(created_at: :desc)
     else
       @notebooks = Notebook.all.order(created_at: :desc)
-    end        
-    # @notebooks = policy_scope(Notebook)
-    # if params[:search]
-    #   if params[:search][:query]
-    #     @notebookresult = Notebook.find_by(name: params[:search][:query])
-    #     if @notebookresult
-    #       redirect_to notebook_path(@notebookresult)
-    #     else
-    #       # redirect_to action:'index', alert: "notebook not found"
-    #       # flash.alert
-    #       flash[:error] = 'notebook not found'
-    #       redirect_to action:'index', danger: "notebook not found"
-    #     end
-    #   end
-    # end
+    end
   end
 
   def show
@@ -88,7 +73,7 @@ class NotebooksController < ApplicationController
   end
 
   def notebooks_params
-    params.require(:notebook).permit(:bar_code, :modelo_especifico,:asin,
+    params.require(:notebook).permit(:bar_code, :modelo_especifico, :asin,
     :name, :brand, :modelo, :processor, :color, :ram, :hd, :weight, :ssd,
     :screen_quality, :screen_size, :screen_width, :placa_video, :keyboard,
     :amazon_sales_rank, :guarantee,
