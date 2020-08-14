@@ -1,23 +1,17 @@
-<%# <form novalidate="novalidate" class="simple_form search" id="form-control-position" >
+<!-- ESSA TELA QUE SO MOSTRA AS TAGS -->
+
+<!-- Barra de busca -->
+<form novalidate="novalidate" class="simple_form search" id="form-control-position" >
   <div class="search-form-control form-group">
     <input class="form-control" placeholder="Buscar por tags (ex: photoshop)" id="mobile-form-input" >
     <button name="button" type="submit" class="btn btn-flat">
       <i class="fas fa-search"></i>
     </button>
   </div>
-</form> %>
+</form>
 
-<%= form_tag notebooks_path, method: :get, style:"display:flex; margin-top:16px;" do %>
-  <%= text_field_tag :query, params[:query], style:"position:relative;width:100%;padding-right:36px;", placeholder: "Buscar por tags (ex: photoshop)" do %>
-  <% end %>
-    <%= button_tag(type: "submit", class: "btn btn-default") do %>
-      <i class="fas fa-search"></i>
-    <% end %>
-<% end %>
 
-<%# Tags Selecionadas: necessita incluir a logica de só aparecer caso o usuario insira alguma tag %>
-<%# <div class="mobile-selected-tags"> %>
-  
+<!-- Opções selecionadas -->
 <div class="title">
   <strong>TAGS Selecionadas:</strong>
 </div>
@@ -30,10 +24,9 @@
         <p><%= item.capitalize %></p>
       </div>
     <% end %>
+  <%# else %>
 
-  <% else %>
-
-    <div class="mobile-index-tag">
+    <!-- <div class="mobile-index-tag">
       <p>ADMINISTRAÇÃO</p>
     </div>
     <div class="mobile-index-tag">
@@ -47,17 +40,19 @@
     </div>
     <div class="mobile-index-tag">
       <p>R$2.500</p>
-    </div>
-
+    </div> -->
   <% end %>
 
 </div>
 
-<div class="mobile-selected-tags">
 
+<!-- TAGS para selecionar -->
+<div class="mobile-selected-tags">
   <div class="title">
     <strong>Preços:</strong>
   </div>
+
+  <!-- Fazer um EACH de tags.prices -->
 
   <div class="tag-row">
     <div class="mobile-index-tag">
@@ -83,13 +78,11 @@
     </div>
   </div>
 
-</div>
-
-<div class="mobile-selected-tags">
-
   <div class="title">
     <strong>Cursos:</strong>
   </div>
+
+  <!-- Fazer um EACH de tags.courses -->
 
   <div class="tag-row">
     <div class="mobile-index-tag">
@@ -114,15 +107,4 @@
       <p>Engenharia Elétrica</p>
     </div>
   </div>
-  
-</div>
-
-<div class="mobile-category-container">
-
-  <div class="row">
-
-  <%= render 'shared/notebooks-results.html+phone.erb' %>
-
-  </div>
-
 </div>

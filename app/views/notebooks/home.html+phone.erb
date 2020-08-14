@@ -1,20 +1,20 @@
-<%# <form novalidate="novalidate" class="simple_form search" id="form-control-position" >
+<%= form_tag notebooks_path, method: :get, style:"display:flex; margin-top:16px;" do %>
+  <%= text_field_tag :query, params[:query], style:"position:relative; width: 100%; padding-right: 30px;", placeholder: "Buscar por tags (ex: photoshop)" do %>
+  <% end %>
+  <%= button_tag(type: "submit", class: "btn btn-flat") do %>
+    <i class="fas fa-search"></i>
+  <% end %>
+<% end %>
+
+<form novalidate="novalidate" class="simple_form search" id="form-control-position" >
   <div class="search-form-control form-group">
-    <input class="form-control" name="query" id="query" placeholder="Buscar por tags (ex: photoshop)">
+    <input class="form-control" placeholder="Buscar por tags (ex: photoshop)" id="mobile-form-input" >
     <button name="button" type="submit" class="btn btn-flat">
       <i class="fas fa-search"></i>
     </button>
   </div>
-</form> %>
-
-<%= form_tag notebooks_path, method: :get, style:"display:flex; margin-top:16px;" do %>
-  <%= text_field_tag :query, params[:query], style:"position:relative;width:100%;padding-right:36px;", placeholder: "Buscar por tags (ex: photoshop)" do %>
-  <% end %>
-    <%= button_tag(type: "submit", class: "btn btn-default") do %>
-      <i class="fas fa-search"></i>
-    <% end %>
-<% end %>
-
+</form>
+<!-- FAZER BUSCA DE CIMA FUNCIONAR COM MESMO DESIGN -->
 
 <div class="mobile-category-container">
 
@@ -32,7 +32,7 @@
             <p>R$2.500</p>
           </div>
         </div>
-      <% end %>  
+      <% end %>
     </div>
 
     <div class="col-6">
@@ -81,7 +81,23 @@
           </div>
         </div>
       <% end %>
-    </div>      
+    </div>
+
+    <div class="col-6">
+      <%= link_to notebooks_path(query: "Office 2.500,00 Full Hd Leve"), :style=>"text-decoration: none;" do %>
+        <div class="mobile-category-card">
+          <img src="https://www.w3schools.com/images/w3schools_green.jpg"  class="mobile-category-card-img" width="50" height="50">
+          <h3>Faculdade</h3>
+          <div class="card-row">
+            <p>i5</p>
+            <p>LEVE</p>
+            <p>FULL HD</p>
+            <p>PACOTE OFFICE</p>
+            <p>R$2.500</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
