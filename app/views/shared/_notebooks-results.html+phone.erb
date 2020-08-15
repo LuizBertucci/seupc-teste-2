@@ -28,10 +28,6 @@
   <% if notebook.name.nil?  %>
     <%= link_to notebook_path(notebook), data: { turbolinks: false }, class:'col-6' do %>
       <div class="mobile-category-card">
-
-        <!-- Temos pictures e photo acopladas. O photo fizemos no comeco mas
-        depois queriamos poder colocar varias so que nao dava pra mudar isso sem ter que
-        fazer tudo de novo ai colocamos o pictures que e o que usamos principalmente -->
         <% if notebook.pictures.attached? %>
           <%= cl_image_tag(notebook.pictures.first.key, class: "mobile-note-img", :transformation => {:width=>400, :height=>400, :crop=>"fill"}) %>
         <% elsif notebook.photo.attached? %>
@@ -40,8 +36,6 @@
           <%= image_tag('noimage.png', class: "mobile-note-img") %>
         <% end %>
 
-        <!-- No heroku o nome fica no name mas no localhost fica no general_info.
-        Essa logica permite que o nome sempre apareca -->
         <div class="card-row">
           <h3><%= notebook.general_info.split('').first(60).join('') %></h3>
           <p><%= notebook.amazon_price %></p>
@@ -67,3 +61,36 @@
     <% end %>
   <% end %>
 <% end %>
+
+
+<!-- Resultado de busca com notebooks -->
+<div class="mobile-results">
+  <div class="mobile-card-result">
+    <% @notebooks.each do |notebook|  %>
+      <%= link_to notebook_path(notebook), data: { turbolinks: false } do %>
+        <% if notebook.pictures.attached? %>
+          <%= cl_image_tag(notebook.pictures.first.key) %>
+        <% elsif notebook.photo.attached? %>
+          <%= cl_image_tag(notebook.photo.key) %>
+        <% else %>
+          <%= image_tag('noimage.png') %>
+        <% end %>
+
+        <% if notebook.name.nil? %>
+          <p class="name"><%= notebook.general_info.split('').first(60).join('') %></p>
+        <% else %>
+          <p class="name"><%= notebook.name.split('').first(60).join('') %>...</p>
+        <% end %>
+
+        <p class="price"><%= notebook.amazon_price %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<!-- Temos pictures e photo acopladas. O photo fizemos no comeco mas
+depois queriamos poder colocar varias so que nao dava pra mudar isso sem ter que
+fazer tudo de novo ai colocamos o pictures que e o que usamos principalmente -->
+
+<!-- No heroku o nome fica no name mas no localhost fica no general_info.
+Essa logica permite que o nome sempre apareca -->
