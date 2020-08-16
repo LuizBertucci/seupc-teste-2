@@ -22,7 +22,6 @@
 
 
 <!-- REFATORAR - codigo pra img pode ir so uma vez -->
-
 <!-- Resultado de busca com notebooks -->
 <% @notebooks.each do |notebook|  %>
   <% if notebook.name.nil?  %>
@@ -63,7 +62,7 @@
 <% end %>
 
 
-<!-- Resultado de busca com notebooks -->
+<!-- REFATORANDO: Resultado de busca com notebooks -->
 <div class="mobile-results">
   <div class="mobile-card-result">
     <% @notebooks.each do |notebook|  %>

@@ -1,122 +1,106 @@
-<div class="fixing-margin">
-
-  <div class="d-flex justify-content-between">
-    <div class="list-content">
-      <% @notebooks.each_with_index do |notebook, index| %>
-        <!-- Lógica para só o admin ver o notebook verde depois de editado -->
-        <% if current_user.admin %>
-          <% if notebook.price_count == 4  %>
-            <div class="card-list" style="border:3px solid green;">
-          <% elsif notebook.price_count == 3 %>
-            <div class="card-list" style="border:3px solid yellow;">
-          <% elsif notebook.price_count == 2 %>
-            <div class="card-list" style="border:3px solid orange;">
-          <% elsif notebook.price_count <= 1 %>
-            <div class="card-list" style="border:3px solid red;">
-          <% end %>
+<div class="d-flex justify-content-between">
+  <div class="list-content">
+    <% @notebooks.each_with_index do |notebook, index| %>
+      <!-- Lógica para só o admin ver o notebook verde depois de editado -->
+      <% if current_user.admin %>
+        <% if notebook.price_count == 4  %>
+          <div class="card-list" style="border: 3px solid green;">
+        <% elsif notebook.price_count == 3 %>
+          <div class="card-list" style="border: 3px solid yellow;">
+        <% elsif notebook.price_count == 2 %>
+          <div class="card-list" style="border: 3px solid orange;">
+        <% elsif notebook.price_count <= 1 %>
+          <div class="card-list" style="border: 3px solid red;">
         <% end %>
+      <% end %>
 
-            <div class="card-list-content">
-
-              <% if notebook.pictures.attached? %>
-               
-               <div class="carousel-container">
-                <div id="carouselExampleControls<%=index.to_s %>" class="carousel slide" >
-                  <div class="carousel-inner">
-                    <% notebook.pictures.each_with_index do |picture, index| %>
-                      <div class="carousel-item <%= 'active' if picture == notebook.pictures[0] %>">
-                        <img class="d-block" src="<%= cl_path(picture.key) %>" alt="<%= index.to_s %>">
-                      </div>
-                    <% end %>
+      <div class="card-list-content">
+        <% if notebook.pictures.attached? %>
+          <div class="carousel-container">
+            <div id="carouselExampleControls<%=index.to_s %>" class="carousel slide" >
+              <div class="carousel-inner">
+                <% notebook.pictures.each_with_index do |picture, index| %>
+                  <div class="carousel-item <%= 'active' if picture == notebook.pictures[0] %>">
+                    <img class="d-block" src="<%= cl_path(picture.key) %>" alt="<%= index.to_s %>">
                   </div>
-                  <a class="carousel-control-prev" href="#carouselExampleControls<%=index.to_s %>" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#carouselExampleControls<%=index.to_s %>" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </div>
-               </div>
-
-              <% else %>
-                
-                <div id="carouselExampleControls" class="carousel slide" >
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                    
-                    <% if notebook.photo.attached?%>
-                      <%# <img class="d-block" src= alt="1"> %>
-                      <img class="d-block" src="<%= cl_path(notebook.photo.key) %>" alt="1">
-                    <% else %>
-                      <%= image_tag 'noimage.png' %>
-                      
-                    <% end %>
-                    
-
-                    
-                    </div>                        
-                  </div>
-                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </div>
-              <% end %>
-
-
-
-                <div class="card-list-infos">
-                  <h2>Position - <%= notebook.position %></h2>
-                  <p>ASIN: <%= notebook.asin %>, <%= notebook.brand %> <%= notebook.modelo %> <%= notebook.modelo_especifico %> <%= notebook.processor %> <%= notebook.ram %> <%= notebook.hd %></p>
-                  <a href="<%= notebook.link_amazon %>" class='form-group col-md-2' target='_blank' id='amazon' >
-                    <p class='btn btn-primary'> abra o link da amazon </p>
-                  </a>
-                  <p><%= notebook.name %></p>
-                  <!-- <p>Tags:
-                    <% notebook.tags.each do |tag| %>
-                    <%= tag.name %> -
-                    <% end %>
-                  </p> -->
-                </div>
+                <% end %>
               </div>
-              <div class="card-actions">
-                <%= link_to edit_notebook_path(notebook) do %>
-                  <i class="btn btn-lg fas fa-edit"></i>
+
+            </div>
+          </div>
+        <% else %>
+          <div id="carouselExampleControls" class="carousel slide" >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <% if notebook.photo.attached?%>
+                  <img class="d-block" src="<%= cl_path(notebook.photo.key) %>" alt="1">
+                <% else %>
+                  <%= image_tag 'noimage.png' %>
                 <% end %>
               </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        <% end %>
 
-      <% end %>
+        <div class="card-list-infos">
+          <h2>Position - <%= notebook.position %></h2>
+          <p><%= notebook.name %></p>
+          <a href="<%= notebook.link_amazon %>" class='form-group col-md-2' target='_blank' id='amazon' >
+            <p class='btn btn-primary'> <%= notebook.amazon_price %> - Amazon </p>
+          </a>
+          <a>
+            <p class='btn btn-primary'> <%= notebook.magalu_price %> - Magalu </p>
+          </a>
+          <a>
+            <p class='btn btn-primary'> <%= notebook.americanas_price %> - Americanas </p>
+          </a>
+          <a>
+            <p class='btn btn-primary'> <%= notebook.submarino_price %> - Submarino </p>
+          </a>
 
-    </div>
-
-
-     <!-- SIDEBAR -->
-    <div class="list-tags-container">
-      <div class="list-tags">
-        <div class="list-tags-top p-3">
-          <p>TAGS:</p>
-          <% if policy(current_user).create? %>
-            <%= link_to new_tag_path do%>
-              <i class="btn btn-primary">Criar TAG</i>
+          <p>Tags:
+            <% notebook.tags.each do |tag| %>
+              <%= tag.name %> -
             <% end %>
-          <% end %>
+          </p>
         </div>
+      </div>
 
-        <div class="list-tags-title">
-          <%= render :partial => "tags/index" , locals: {tags: @tags}%>
-        </div>
+      <div class="card-actions">
+        <%= link_to edit_notebook_path(notebook) do %>
+          <i class="btn btn-lg fas fa-edit"></i>
+        <% end %>
+      </div>
 
       </div>
-    </div>
+    <% end %>
   </div>
 
 
-</div>
+   <!-- SIDEBAR -->
+  <div class="list-tags-container">
+    <div class="list-tags">
+      <div class="list-tags-top p-3">
+        <p>TAGS:</p>
+        <% if policy(current_user).create? %>
+          <%= link_to new_tag_path do%>
+            <i class="btn btn-primary">Criar TAG</i>
+          <% end %>
+        <% end %>
+      </div>
 
+      <div class="list-tags-title">
+        <%= render :partial => "tags/index" , locals: {tags: @tags}%>
+      </div>
+
+    </div>
+  </div>
+</div>
