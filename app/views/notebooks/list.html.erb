@@ -18,14 +18,11 @@
         <% if notebook.pictures.attached? %>
           <div class="carousel-container">
             <div id="carouselExampleControls<%=index.to_s %>" class="carousel slide" >
-              <div class="carousel-inner">
-                <% notebook.pictures.each_with_index do |picture, index| %>
-                  <div class="carousel-item <%= 'active' if picture == notebook.pictures[0] %>">
-                    <img class="d-block" src="<%= cl_path(picture.key) %>" alt="<%= index.to_s %>">
-                  </div>
-                <% end %>
-              </div>
-
+              <% notebook.pictures.each_with_index do |picture, index| %>
+                <div class="carousel-item <%= 'active' if picture == notebook.pictures[0] %>">
+                  <img class="d-block" src="<%= cl_path(picture.key) %>" alt="<%= index.to_s %>">
+                </div>
+              <% end %>
             </div>
           </div>
         <% else %>
@@ -39,14 +36,6 @@
                 <% end %>
               </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
           </div>
         <% end %>
 
