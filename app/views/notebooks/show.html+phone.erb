@@ -40,25 +40,29 @@
       </a>
     <% end %>
 
-
+    <% unless @notebook.magalu_price.nil? %>
       <a href="<%= @notebook.link_magalu %>" target='_blank' id='magalu'>
         <%= image_tag "magalu.png" %>
         <p> <%= @notebook.magalu_price %> </p>
         <p class="btn btn-primary">Ir a loja</p>
       </a>
+    <% end %>
 
+    <% unless @notebook.americanas_price.nil? %>
       <a href="<%= @notebook.link_americanas %>" target='_blank' id='americanas'>
         <%= image_tag "americanas.png" %>
         <p> <%= @notebook.americanas_price %> </p>
         <p class="btn btn-primary">Ir a loja</p>
       </a>
+    <% end %>
 
+    <% unless @notebook.submarino_price.nil? %>
       <a href="<%= @notebook.link_submarino %>" target='_blank' id='submarino'>
         <%= image_tag "submarino.png" %>
         <p> <%= @notebook.submarino_price %> </p>
         <p class="btn btn-primary">Ir a loja</p>
       </a>
-
+    <% end %>
   </div>
 
   <div class="card-header" id="headingOne" >

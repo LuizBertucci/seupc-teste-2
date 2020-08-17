@@ -108,3 +108,32 @@
     </div>
   </div>
 </div>
+
+<!-- Resultado de busca com notebooks - colocando aqui pra TESTE pra visualizacao -->
+<div class="mobile-results">
+  <div class="mobile-card-result">
+    <% @notebooks.each do |notebook|  %>
+      <%= link_to notebook_path(notebook), data: { turbolinks: false } do %>
+        <% if notebook.pictures.attached? %>
+          <%= cl_image_tag(notebook.pictures.first.key) %>
+        <% elsif notebook.photo.attached? %>
+          <%= cl_image_tag(notebook.photo.key) %>
+        <% else %>
+          <%= image_tag('noimage.png') %>
+        <% end %>
+
+        <% if notebook.name.nil? %>
+          <p class="name"><%= notebook.general_info.split('').first(60).join('') %></p>
+        <% else %>
+          <p class="name"><%= notebook.name.split('').first(60).join('') %>...</p>
+        <% end %>
+
+        <p class="price"><%= notebook.amazon_price %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<!-- Temos pictures e photo acopladas. O photo fizemos no comeco mas
+depois queriamos poder colocar varias so que nao dava pra mudar isso sem ter que
+fazer tudo de novo ai colocamos o pictures que e o que usamos principalmente -->

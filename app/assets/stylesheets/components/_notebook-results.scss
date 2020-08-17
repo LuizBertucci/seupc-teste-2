@@ -1,8 +1,8 @@
+// Card do desktop
 .notebook-results {
   flex: 0 0 65%;
   margin-top: 125px;
   border-radius: 5px;
-  // border: 1px solid black;
   display: grid;
   grid-gap: 16px 16px;
   grid-template-columns: 1fr 1fr 1fr;
@@ -17,30 +17,9 @@
   align-items: center;
   justify-content:space-around;
   width:100%;
-
 }
-
-.name {
-  text-decoration: none;
-  color: #404040;
-  font-weight: 100;
-}
-
-.name:hover{
-  text-decoration: none;
-}
-
-
-.price {
- text-decoration: none;
-  color:black !important;
-}
-
-
-
 
 .notebook-card img {
-  // margin-top: 10px;
   margin-bottom: 10px;
   width: 80%;
 }

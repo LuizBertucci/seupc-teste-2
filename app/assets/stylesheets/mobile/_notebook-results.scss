@@ -1,0 +1,33 @@
+// Card de resultado
+.mobile-results {
+  display: grid;
+  grid-gap: 16px 16px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.mobile-card-result {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  padding: 0;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.mobile-card-result img {
+  align-items: center;
+  width: 100%;
+}
+
+.mobile-card-result .name {
+  display: flex;
+  flex-direction: row;
+  color: black;
+  font-size: 12px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.mobile-card-result .price {
+  font-size: 16px;
+}
