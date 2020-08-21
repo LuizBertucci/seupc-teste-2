@@ -14,11 +14,11 @@
             <%= cl_image_tag notebook.photo.key%>
           <% else %>
             <%= image_tag 'noimage.png' %>
-          <% end %>        
-        
+          <% end %>
+
           <div class="notebook-info-centralize">
             <div class="notebook-info">
-              <p class="name"><%= notebook.name.split('').first(60).join('') %>...</p>
+              <p class="name">ASR:<%= notebook.amazon_sales_rank %> - <%= notebook.name.split('').first(60).join('') %>...</p>
               <p class="price"><%= notebook.amazon_price %></p>
             </div>
           </div>
@@ -43,7 +43,7 @@
 
           <div class="notebook-info-centralize">
             <div class="notebook-info">
-              <p class="name"><%= notebook.general_info.split('').first(55).join('') %>...</p>
+              <p class="name">ASR:<%= notebook.amazon_sales_rank %> - <%= notebook.general_info.split('').first(55).join('') %>...</p>
               <p class="price"><%= notebook.amazon_price %></p>
             </div>
           </div>
@@ -55,10 +55,10 @@
     <% end %>
 
   <% else %>
-    
+
     <!-- O que a pessoa ve se nao for admin -->
     <%= link_to notebook_path(notebook), data: { turbolinks: false } do %>
-    
+
       <div class="notebook-card">
           <%# Lógica para verificar se há uma foto, mais de uma foto, ou nenhuma foto attached %>
           <% if notebook.pictures.attached? %>
@@ -71,7 +71,7 @@
 
           <div class="notebook-info-centralize">
             <div class="notebook-info">
-              <p class="name"><%= notebook.general_info.split('').first(55).join('') %>...</p>
+              <p class="name">ASR:<%= notebook.amazon_sales_rank %> - <%= notebook.general_info.split('').first(55).join('') %>...</p>
               <p class="price"><%= notebook.amazon_price %></p>
             </div>
           </div>
