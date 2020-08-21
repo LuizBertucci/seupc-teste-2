@@ -1,12 +1,12 @@
 class Notebook < ApplicationRecord
   include PgSearch::Model
-  
+
   has_one_attached :photo
   has_many_attached :pictures
 
   validates :asin, presence: true, uniqueness: true
   after_initialize :init
-  
+
   acts_as_list column: :position, add_new_at: :bottom
 
   has_many :taggings
@@ -22,7 +22,7 @@ class Notebook < ApplicationRecord
 
     counter
   end
-  
+
   private
 
   def init
@@ -32,7 +32,7 @@ class Notebook < ApplicationRecord
 
 
   pg_search_scope :search_query,
-    against: [ :amazon_price, :magalu_price, :americanas_price, :submarino_price, 
+    against: [ :amazon_price, :magalu_price, :americanas_price, :submarino_price,
                :brand, :modelo, :processor, :color, :screen_size, :ram,
                :hd, :ssd, :placa_video, :name],
     using: {

@@ -11,11 +11,11 @@ OpenURI::Buffer.const_set 'StringMax', 0
 
 # Parseando arquivo local
 
-# response = File.read(Rails.public_path + 'response.txt')
+response = File.read(Rails.public_path + 'response.txt')
 
-# response_file = eval(response)
+response_file = eval(response)
 
-# response_ruby = JSON.parse(response)
+response_ruby = JSON.parse(response)
 
 #--------------------------------------------------------
 # Logica para limparmos o DB, enquanto testamos a seed
@@ -28,16 +28,16 @@ puts 'database cleanned'
 puts 'creating the admin users'
 
 luiz = User.create!({ username: "LBertucci", password: "123456", email: 'luizelbertucci@gmail.com', admin: true})
-file = open("https://ca.slack-edge.com/T02NE0241-USJJ38XK7-823cd5ba441d-512")
-luiz.photo.attach(io:file, filename: "luiz.jpg")
+# file = open("https://ca.slack-edge.com/T02NE0241-USJJ38XK7-823cd5ba441d-512")
+# luiz.photo.attach(io:file, filename: "luiz.jpg")
 
 klismann = User.create!({ username: "Klismann", password: "123456", email: 'klismannsffer@gmail.com', admin: true})
 
 arthur = User.create!({ username: "Arthur", password: "123456", email: 'arthurfridrich@hotmail.com', admin: true})
 
 yuri = User.create!({ username: "Yuri", password: "testtest", email: 'ygravata@gmail.com', admin: true})
-file = open("https://ca.slack-edge.com/T02NE0241-U012667MY2X-dad935f9dc0c-512")
-yuri.photo.attach(io:file, filename: "matheus.jpg")
+# file = open("https://ca.slack-edge.com/T02NE0241-U012667MY2X-dad935f9dc0c-512")
+# yuri.photo.attach(io:file, filename: "matheus.jpg")
 
 # Logica para fazer um request http manual para a api da amazon
 
@@ -116,8 +116,8 @@ while i < 11 do
     )
 
 #     # adicionando a foto a cada notebook
-    file = open(notebook[:Images][:Primary][:Large][:URL])
-    laptop.photo.attach(io: file, filename: "randomavatar.jpg")
+    # file = open(notebook[:Images][:Primary][:Large][:URL])
+    # laptop.photo.attach(io: file, filename: "randomavatar.jpg")
 
     puts '+ 1 notebook added to our DB'
   end
